@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>自动化博客搭建(2)--写作环境搭建 | JiangYu/疆域</title>
+  <meta name="keywords" content=" 博客搭建 ">
+  <meta name="description" content="自动化博客搭建(2)--写作环境搭建 | JiangYu/疆域">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于小站疆域 是姜宇的个人专属知识库站。 对于 疆域 存在下面几点声明：  疆域内的一切图文、符号均属于原作者所有；  疆域内的一切图文、符号涉及到的所有知识均属于全人类;  疆域内的一切图文、符号均可转载，但必须明确表明出处。   到目前为止已经写了篇文章， 共字。 疆域已有人访问， 访问量：次">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JiangYu&#x2F;疆域">
+<meta property="og:url" content="https://blog.jiangyu365.com/about/index.html">
+<meta property="og:site_name" content="JiangYu&#x2F;疆域">
+<meta property="og:description" content="关于小站疆域 是姜宇的个人专属知识库站。 对于 疆域 存在下面几点声明：  疆域内的一切图文、符号均属于原作者所有；  疆域内的一切图文、符号涉及到的所有知识均属于全人类;  疆域内的一切图文、符号均可转载，但必须明确表明出处。   到目前为止已经写了篇文章， 共字。 疆域已有人访问， 访问量：次">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-04T11:48:19.889Z">
+<meta property="article:modified_time" content="2021-05-04T11:48:19.889Z">
+<meta property="article:author" content="姜 宇">
+<meta property="article:tag" content="系统分析师">
+<meta property="article:tag" content="设计师">
+<meta property="article:tag" content="JAVA">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="CentOS7">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="VUE">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/zenbum.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="JiangYu/疆域" type="application/atom+xml">
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+</div>
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>姜 宇</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="rss" href="/atom.xml" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-rss"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="github" href="https://github.com/jiang4yu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="oschina" href="https://my.oschina.net/jiang4yu" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-oschina"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:jiang4yu@126.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=915124929&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(14)</small></div></li>
+    
+        
+            
+            <li><div data-rel="CentOS7">CentOS7<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="gitlab">gitlab<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="JavaEE"><i class="fold iconfont icon-right"></i>JavaEE<small>(1)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="JavaEE<--->注解校验">注解校验<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="MySQL">MySQL<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="OpenLDAP">OpenLDAP<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Redis">Redis<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="RocketMQ">RocketMQ<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="SonarQube">SonarQube<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Yapi">Yapi<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="博客搭建">博客搭建<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="14">
+<input type="hidden" id="yelog_site_word_count" value="10.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CentOS7</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitLab</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OpenLDAP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Redis安装</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RocketMQ单机版</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SonarQube</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Yapi</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>常用注解</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2021/05/04/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2021-05-04 19:48:19">2021/05/04</span>
+        </a>
+        
+        <a  class="全部文章 Yapi "
+           href="/2020/07/05/CentOS7-%E9%9D%9Edocker%E9%83%A8%E7%BD%B2-Yapi/"
+           data-tag="CentOS7,Yapi"
+           data-author="" >
+            <span class="post-title" title="CentOS7 非docker部署 Yapi">CentOS7 非docker部署 Yapi</span>
+            <span class="post-date" title="2020-07-05 12:08:56">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 SonarQube "
+           href="/2020/07/05/CentOS7-%E9%9D%9Edocker%E5%AE%89%E8%A3%85-SonarQube8-3-1/"
+           data-tag="CentOS7,SonarQube"
+           data-author="" >
+            <span class="post-title" title="CentOS7 非docker安装 SonarQube8.3.1">CentOS7 非docker安装 SonarQube8.3.1</span>
+            <span class="post-date" title="2020-07-05 11:59:51">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 OpenLDAP "
+           href="/2020/07/05/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AEOpenLDAP/"
+           data-tag="CentOS7,OpenLDAP"
+           data-author="" >
+            <span class="post-title" title="CentOS7下安装与配置OpenLDAP">CentOS7下安装与配置OpenLDAP</span>
+            <span class="post-date" title="2020-07-05 11:48:05">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 RocketMQ "
+           href="/2020/06/19/RocketMQ%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA%E7%89%88RocketMQ/"
+           data-tag="RocketMQ单机版"
+           data-author="" >
+            <span class="post-title" title="RocketMQ系列：1.CentOS7安装单机版RocketMQ">RocketMQ系列：1.CentOS7安装单机版RocketMQ</span>
+            <span class="post-date" title="2020-06-20 00:29:36">2020/06/20</span>
+        </a>
+        
+        <a  class="全部文章 gitlab "
+           href="/2020/02/29/CentOS7-%E5%AE%89%E8%A3%85GitLab/"
+           data-tag="CentOS7,GitLab"
+           data-author="" >
+            <span class="post-title" title="CentOS7 安装GitLab">CentOS7 安装GitLab</span>
+            <span class="post-date" title="2020-02-29 18:53:50">2020/02/29</span>
+        </a>
+        
+        <a  class="全部文章 Redis "
+           href="/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/"
+           data-tag="Redis安装"
+           data-author="" >
+            <span class="post-title" title="Redis系列：1.CentOS7安装Redis">Redis系列：1.CentOS7安装Redis</span>
+            <span class="post-date" title="2020-02-26 18:10:15">2020/02/26</span>
+        </a>
+        
+        <a  class="全部文章 MySQL "
+           href="/2020/02/26/MySQL%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"
+           data-tag="MySQL"
+           data-author="" >
+            <span class="post-title" title="MySQL系列：1.CentOS7安装MySQL数据库">MySQL系列：1.CentOS7安装MySQL数据库</span>
+            <span class="post-date" title="2020-02-26 08:10:15">2020/02/26</span>
+        </a>
+        
+        <a  class="全部文章 JavaEE 注解校验 "
+           href="/2020/02/22/Hibernate-Validator/"
+           data-tag="常用注解"
+           data-author="" >
+            <span class="post-title" title="Hibernate Validator">Hibernate Validator</span>
+            <span class="post-date" title="2020-02-22 22:14:45">2020/02/22</span>
+        </a>
+        
+        <a  class="全部文章 CentOS7 "
+           href="/2020/02/22/CentOS7%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96/"
+           data-tag="CentOS7"
+           data-author="" >
+            <span class="post-title" title="CentOS7安装与管理系统初始化">CentOS7安装与管理系统初始化</span>
+            <span class="post-date" title="2020-02-22 22:06:39">2020/02/22</span>
+        </a>
+        
+        <a  class="全部文章 博客搭建 "
+           href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-4-%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="自动化博客搭建(4)--自动发布">自动化博客搭建(4)--自动发布</span>
+            <span class="post-date" title="2020-01-01 15:31:48">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 博客搭建 "
+           href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-3-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="自动化博客搭建(3)--博客配置">自动化博客搭建(3)--博客配置</span>
+            <span class="post-date" title="2020-01-01 14:41:48">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 博客搭建 "
+           href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-2-%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="自动化博客搭建(2)--写作环境搭建">自动化博客搭建(2)--写作环境搭建</span>
+            <span class="post-date" title="2020-01-01 12:02:41">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 博客搭建 "
+           href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-1-%E8%B4%A6%E5%8F%B7%E5%88%9B%E5%BB%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="自动化博客搭建(1)--账号创建">自动化博客搭建(1)--账号创建</span>
+            <span class="post-date" title="2020-01-01 11:41:08">2020/01/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-自动化博客搭建-2-写作环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">自动化博客搭建(2)--写作环境搭建</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="博客搭建">博客搭建</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">博客搭建</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-05-04 19:48:19'>2020-01-01 12:02</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0、前言"><span class="toc-text">0、前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1、Git-安装与相关配置"><span class="toc-text">1、Git 安装与相关配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2、nodejs安装与配置"><span class="toc-text">2、nodejs安装与配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3、myblog源码生成与预览博客"><span class="toc-text">3、myblog源码生成与预览博客</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4、总结"><span class="toc-text">4、总结</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0、前言"><a href="#0、前言" class="headerlink" title="0、前言"></a>0、前言</h1><p>在上一篇文章自动化博客(1)–账号创建中，我们已经完成了GitHub账号的创建并且成功创建了两个仓库用来存放相关的文件或源代码：</p>
+<table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>属性</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>myblog</td>
+<td>private</td>
+<td>存放博客源码</td>
+</tr>
+<tr>
+<td>username.github.io</td>
+<td>public</td>
+<td>存放自动化生成的博客页面</td>
+</tr>
+</tbody></table>
+<p>在本章中，我们将完成基本博客写作环境的搭建。</p>
+<h1 id="1、Git-安装与相关配置"><a href="#1、Git-安装与相关配置" class="headerlink" title="1、Git 安装与相关配置"></a>1、Git 安装与相关配置</h1><ul>
+<li><p>1、下载并安装git工具</p>
+<ul>
+<li><p>1、登录<a href="https://git-scm.com/">git官网</a>下载 git </p>
+<p><img src="image_20200213133246.png" alt="git官网"></p>
+<p><img src="image-20200213140723804.png" alt="具体下载页面"><br>本人认为，现在几乎每个人手里的windows系统都是64位的，所以我们直接选择<strong>64-bit Git for Windows Setup.</strong>，下载项即可，若你是32位系统，请选择<strong>32-bit Git for Windows Setup.</strong>；如何确认自己的系统位数，请自行百度。安装成功后，在桌面鼠标右键单击将会看见下图所示的状态，即为安装成功；安装过程省略，若你需帮助可联系鄙人。<br><img src="image-20200213145148.png" alt="git效果图"></p>
+</li>
+</ul>
+</li>
+<li><p>2、生成ssh密钥<br>Git安装完成之后，需要做最后一步配置，如果你没做这项配置，是没有ssh公私密钥对的，然而上传代码到远程的github等仓库，是需要验证是不是你本人亲自上传的，所以我们配置并生成一下</p>
+</li>
+</ul>
+<ol>
+<li><p>配置用户信息，<strong>win+R</strong>输入cmd，在弹出的黑窗口中输入如下内容：</p>
+<pre><code class="bash">  git config --global user.name &quot;用户名&quot;
+  git config --global user.email &quot;你的邮箱&quot;</code></pre>
+<p>  虽然用户名和邮箱均可以自我选择，但鄙人建议与github注册时使用的用户名和邮箱保持一致。</p>
+<ol start="2">
+<li><p>生成 ssh 公私密钥对,<strong>win+R</strong>输入cmd，在弹出的黑窗口中输入如下内容：</p>
+<pre><code class="bash">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code></pre>
+<p>然后三次回车键，如下图所示：</p>
+<p><img src="image-20200213145149.png" alt="ssh密钥示例"><br>在下面的文件路径：<strong>C:\Users\你的电脑用户名\.ssh\</strong>下，将会出现如下图所示的一组密钥<br><img src="image-20200213145150.png" alt="ssh密钥对"></p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>文件描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id_rsa</td>
+<td>ssh私钥,不可以泄露给其他人</td>
+</tr>
+<tr>
+<td>id_rsa.pub</td>
+<td>ssh公钥,后面一步将配置到github网站中</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p>3、在github配置与验证ssh密钥</p>
+<ol>
+<li><p>使用文本编辑器打开<strong>id_rsa.pub</strong>文件并复制其中的内容；<br><img src="image-20200213145154.png" alt="添加ssh公钥-3"></p>
+</li>
+<li><p>打开<a href="https://github.com/settings/keys">github添加密钥页面</a>,添加ssh公钥，如下面的图片所示进行操作:</p>
+<p><img src="image-20200213145151.png" alt="添加ssh公钥-1"><br><img src="image-20200213145152.png" alt="添加ssh公钥-2"><br><img src="image-20200213145153.png" alt="添加ssh公钥-3"></p>
+</li>
+<li><p>验证ssh密钥配置是否成功<br><strong>win+R</strong>输入cmd，在弹出的黑窗口中输入如下内容：</p>
+<pre><code class="bash">ssh git@github.com</code></pre>
+<p>中途会有一个确认问题，我们输入<strong>yes</strong>即可，当看见如下字样即配置成功</p>
+<pre><code class="bash">Hi 。。。。</code></pre>
+<p> <img src="image-20200213145155.png" alt="ssh公钥配置成功"></p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="2、nodejs安装与配置"><a href="#2、nodejs安装与配置" class="headerlink" title="2、nodejs安装与配置"></a>2、nodejs安装与配置</h1><ul>
+<li><p>1、下载并安装nodejs工具</p>
+<ul>
+<li><p>1、登录<a href="https://nodejs.org/en/">nodejs官网</a>下载 nodejs</p>
+<p><img src="image-20200213140538262.png" alt="nodejs官网"></p>
+</li>
+</ul>
+</li>
+<li><p>2、验证nodejs安装成功</p>
+<p>执行命令<strong>node -v</strong> 与命令<strong>npm -v</strong>；见到如下图所示结果，即为安装成功！<br><img src="image-20200213145147.png" alt="nodejs验证"></p>
+</li>
+<li><p>3、安装hexo</p>
+<p>执行命令：<strong>npm install -g hexo</strong>，如下图所示：<br><img src="image-20200213145162.png" alt="安装hexo-1"><br><img src="image-20200213145161.png" alt="安装hexo-2"></p>
+</li>
+</ul>
+<h1 id="3、myblog源码生成与预览博客"><a href="#3、myblog源码生成与预览博客" class="headerlink" title="3、myblog源码生成与预览博客"></a>3、myblog源码生成与预览博客</h1><ul>
+<li><p>1、克隆myblog仓库到本地</p>
+<ol>
+<li><p>打开github，找到myblog仓库，并按照下图，复制出仓库的地。<br><img src="image-20200213145160.png" alt="克隆仓库"></p>
+</li>
+<li><p>克隆仓库，选择一个专门存放博客的文件夹（最好不要有中文名）然后单击鼠标右键，选择<strong>Git Bash Here</strong>然后输入<strong>git clone</strong>，如下所示</p>
+<pre><code class="bash">git clone git@github.com:yourname/myblog.git</code></pre>
+<p><img src="image-20200213145163.png" alt="克隆仓库"></p>
+</li>
+</ol>
+</li>
+<li><p>2、生成myblog初始化源码</p>
+<ol>
+<li><p>另外找一个空的文件夹，执行命令：<strong>hexo init myblog</strong>，生成源码文件<br><img src="image-20200213145164.png" alt="生成博客源码"></p>
+</li>
+<li><p>将生成的所有文件，复制到克隆下来的仓库文件夹中；文件目录结构如下图所示</p>
+<p><img src="image-20200213145165.png" alt="文件目录结构"></p>
+<table>
+<thead>
+<tr>
+<th>文件/文件夹</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_config.yml</td>
+<td>配置文件</td>
+</tr>
+<tr>
+<td>scaffolds</td>
+<td>一些通用的markdown模板</td>
+</tr>
+<tr>
+<td>source</td>
+<td>编写的markdown文件，_drafts草稿文件，_posts发布的文章</td>
+</tr>
+<tr>
+<td>themes</td>
+<td>博客的主题模板</td>
+</tr>
+<tr>
+<td>.gitignore</td>
+<td>Git提交忽略文件列表</td>
+</tr>
+<tr>
+<td>package.json</td>
+<td>hexo模块的描述文件</td>
+</tr>
+<tr>
+<td>package-lock.json</td>
+<td>记录当前状态下实际安装的各个npm package的具体来源和版本号。</td>
+</tr>
+<tr>
+<td>node_modules</td>
+<td>模块下载时存储的文件</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>3、预览博客</p>
+<ol>
+<li><p>进入目录中，执行命令<strong>hexo server</strong>或者<strong>hexo s</strong>，将会出现如下图所示</p>
+<p><img src="image-20200213145166.png" alt="预览命令"></p>
+</li>
+<li><p>浏览器打开网址：<a href="http://localhost:4000">http://localhost:4000</a> 进行博客预览，不出意外则会如下图所示的默认博客页面：</p>
+<p><img src="image-20200213145166.png" alt="博客默认界面"></p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h1><p>本篇文章中，我们搭建了基础的博客环境并初始化了默认的博客源码；到此处我们要实现的功能已经完成了<strong>40%</strong>；还剩下的内容有：</p>
+<ul>
+<li><ol>
+<li>博客的基础内容的个性化配置；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>选择一个自己喜欢的主题；</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>实现博客的自动化发布等等。</li>
+</ol>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jiang4yu@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>自动化博客搭建(2)--写作环境搭建</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">1.2k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title="姜 宇">姜 宇</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-01-01, 12:02:41</p>
+    <p><span class="copy-title">最后更新:</span>2021-05-04, 19:48:19</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-2-%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="自动化博客搭建(2)--写作环境搭建">https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-2-%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '7e8e1b251ac59974b90e',
+            clientSecret: 'e21575d88f4d9dea175a695cfbb0014fbbdb93cc',
+            repo: 'jiang4yu.github.io',
+            owner: 'jiang4yu',
+            admin: ['jiang4yu'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 jiangyu365
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/img/article-list-background.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

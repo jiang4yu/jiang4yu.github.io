@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>JiangYu/疆域</title>
+  
+  <subtitle>姜宇的私有领域</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.jiangyu365.com/"/>
+  <updated>2021-05-04T11:48:19.869Z</updated>
+  <id>https://blog.jiangyu365.com/</id>
+  
+  <author>
+    <name>姜 宇</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.jiangyu365.com/2021/05/04/hello-world/"/>
+    <id>https://blog.jiangyu365.com/2021/05/04/hello-world/</id>
+    <published>2021-05-04T11:48:19.869Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7 非docker部署 Yapi</title>
+    <link href="https://blog.jiangyu365.com/2020/07/05/CentOS7-%E9%9D%9Edocker%E9%83%A8%E7%BD%B2-Yapi/"/>
+    <id>https://blog.jiangyu365.com/2020/07/05/CentOS7-%E9%9D%9Edocker%E9%83%A8%E7%BD%B2-Yapi/</id>
+    <published>2020-07-05T04:08:56.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-安装NodeJs"><a href="#1-安装NodeJs" class="headerlink" title="1 安装NodeJs"></a>1 安装NodeJs</h2><pre><code class="bash"># 安装依赖yum install -y wget vim# 下载nodejswget https://nodejs.org/dist/v12.18.0/node-v12.18.0-linux-x64.tar.xz# 解压xz -d node-v12.18.0-linux-x64.tar.xztar -xf node-v12.18.0-linux-x64.tarmv node-v12.18.0-linux-x64 /usr/local/node-v12.18.0</code></pre><h3 id="1-1-配置环境变量"><a href="#1-1-配置环境变量" class="headerlink" title="1.1 配置环境变量"></a>1.1 配置环境变量</h3><pre><code class="bash">vim /etc/profile# 在文件末尾，添加如下内容：export NODE_HOME=/usr/local/node-v12.18.0export PATH=$PATH:$NODE_HOME/binexport NODE_PATH=$PATH:$NODE_HOME/lib/node_modules# 加载环境source /etc/profile# 检查是否安装成功node -vnpm -vecho $NODE_HOME</code></pre><h2 id="2-安装mongodb"><a href="#2-安装mongodb" class="headerlink" title="2 安装mongodb"></a>2 安装mongodb</h2><h3 id="2-1-创建-yum源"><a href="#2-1-创建-yum源" class="headerlink" title="2.1 创建 yum源"></a>2.1 创建 yum源</h3><pre><code class="bash">vim /etc/yum.repos.d/mongodb-org-4.0.repo# 内容如下：[mongodb-org-4.0]name=MongoDB Repositorybaseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/gpgcheck=1enabled=1gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc</code></pre><h3 id="2-2-使用-yum-安装-mongoDB"><a href="#2-2-使用-yum-安装-mongoDB" class="headerlink" title="2.2 使用 yum 安装 mongoDB"></a>2.2 使用 yum 安装 mongoDB</h3><pre><code class="bash"># 安装yum install -y mongodb-org# 验证安装结果rpm -qa |grep mongodbrpm -ql mongodb-org-server</code></pre><h3 id="2-3-启动mongoDB"><a href="#2-3-启动mongoDB" class="headerlink" title="2.3 启动mongoDB"></a>2.3 启动mongoDB</h3><pre><code class="bash"># 启动systemctl start mongod.service# 加载开机自启动systemctl enable mongod.service# 查看状态systemctl status mongod.service# 查看端口暂用netstat -natp | grep 27017# 查看数据库的进程是否存在ps -aux | grep mongod</code></pre><h3 id="2-4-配置远程连接"><a href="#2-4-配置远程连接" class="headerlink" title="2.4 配置远程连接"></a>2.4 配置远程连接</h3><pre><code class="bash"># 编辑vim /etc/mongod.conf# 将 net：#        port:27017#        bindIp: 127.0.0.1  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.# 改为如下内容：net:  port: 27017  bindIp: 0.0.0.0  # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.# 重启mongodb服务systemctl restart mongod.service</code></pre><h2 id="3-Yapi-安装"><a href="#3-Yapi-安装" class="headerlink" title="3 Yapi 安装"></a>3 Yapi 安装</h2><h3 id="3-1-安装Yapi"><a href="#3-1-安装Yapi" class="headerlink" title="3.1 安装Yapi"></a>3.1 安装Yapi</h3><pre><code class="bash"># 安装npm install -g yapi-cli --registry https://registry.npm.taobao.orgyapi server# 打开浏览器配置</code></pre><h3 id="3-2-安装PM2"><a href="#3-2-安装PM2" class="headerlink" title="3.2 安装PM2"></a>3.2 安装PM2</h3><pre><code class="bash">npm install -g pm2</code></pre><h3 id="3-3-开机启动"><a href="#3-3-开机启动" class="headerlink" title="3.3 开机启动"></a>3.3 开机启动</h3><pre><code class="bash"># 启动服务pm2 start /usr/local/yapi/vendors/server/app.js# 保存当前进程状态pm2 save# 生成开机自启动服务pm2 startup# 查看启动项systemctl list-unit-files | grep enable</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-安装NodeJs&quot;&gt;&lt;a href=&quot;#1-安装NodeJs&quot; class=&quot;headerlink&quot; title=&quot;1 安装NodeJs&quot;&gt;&lt;/a&gt;1 安装NodeJs&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;# 安装依赖
+yum instal
+      
+    
+    </summary>
+    
+    
+      <category term="Yapi" scheme="https://blog.jiangyu365.com/categories/Yapi/"/>
+    
+    
+      <category term="CentOS7" scheme="https://blog.jiangyu365.com/tags/CentOS7/"/>
+    
+      <category term="Yapi" scheme="https://blog.jiangyu365.com/tags/Yapi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7 非docker安装 SonarQube8.3.1</title>
+    <link href="https://blog.jiangyu365.com/2020/07/05/CentOS7-%E9%9D%9Edocker%E5%AE%89%E8%A3%85-SonarQube8-3-1/"/>
+    <id>https://blog.jiangyu365.com/2020/07/05/CentOS7-%E9%9D%9Edocker%E5%AE%89%E8%A3%85-SonarQube8-3-1/</id>
+    <published>2020-07-05T03:59:51.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1 安装依赖"></a>1 安装依赖</h2><pre><code class="bash">yum install -y epel-release unzip vim wget</code></pre><h2 id="2-安装-OpenJDK"><a href="#2-安装-OpenJDK" class="headerlink" title="2 安装 OpenJDK"></a>2 安装 OpenJDK</h2><pre><code class="bash"># 安装jdkyum install -y java-11-openjdk java-11-openjdk-devel# 查看jdk具体版本ls -lh /usr/lib/jvm/</code></pre><h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><pre><code class="bash">vim /etc/profile</code></pre><p>在文件最后添加如下内容：</p><pre><code class="text">export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.7.10-4.el7_8.x86_64#{查看得知得版本}export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jarexport PATH=$PATH:$JAVA_HOME/bin</code></pre><pre><code class="bash">source /etc/profile</code></pre><h2 id="3-安装并配置-PostgreSQL"><a href="#3-安装并配置-PostgreSQL" class="headerlink" title="3 安装并配置 PostgreSQL"></a>3 安装并配置 PostgreSQL</h2><h3 id="3-1-安装-PostgreSQL-10"><a href="#3-1-安装-PostgreSQL-10" class="headerlink" title="3.1 安装 PostgreSQL 10"></a>3.1 安装 PostgreSQL 10</h3><pre><code class="bash"># 添加 PostgreSQL 10 yum源yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm# 安装 PostgreSQL 10 服务yum install -y postgresql10-server postgresql10# 初始化数据库/usr/pgsql-10/bin/postgresql-10-setup initdb</code></pre><h3 id="3-2-编辑-pg-hba-conf"><a href="#3-2-编辑-pg-hba-conf" class="headerlink" title="3.2 编辑 pg_hba.conf"></a>3.2 编辑 pg_hba.conf</h3><pre><code class="bash">vim /var/lib/pgsql/10/data/pg_hba.conf</code></pre><p>内容如下：</p><pre><code class="bash"># 将host        all        all        127.0.0.1/32        ident 改为：host        all        all        127.0.0.1/32        md5# 在文档后添加 下面一行开启远程连接host        all        all        0.0.0.0/0        md5</code></pre><h3 id="3-3-编辑-postgresql-conf"><a href="#3-3-编辑-postgresql-conf" class="headerlink" title="3.3 编辑 postgresql.conf"></a>3.3 编辑 postgresql.conf</h3><pre><code class="bash">vim /var/lib/pgsql/10/data/postgresql.conf# 开启远程监听 listen_addresses = &#39;localhost&#39; 改为如下内容listen_addresses = &#39;*&#39;port = 5432</code></pre><h3 id="3-4-启动-PostgreSQL-服务"><a href="#3-4-启动-PostgreSQL-服务" class="headerlink" title="3.4 启动 PostgreSQL 服务"></a>3.4 启动 PostgreSQL 服务</h3><pre><code class="bash"># 启动systemctl start postgresql-10# 加载开机自启systemctl enable postgresql-10# 查看状态systemctl status postgresql-10# 查看端口监听netstat -tulpn | grep 5432</code></pre><h3 id="3-5-sonarqube-数据库"><a href="#3-5-sonarqube-数据库" class="headerlink" title="3.5 sonarqube 数据库"></a>3.5 sonarqube 数据库</h3><p>为 SonarQube 创建 一个名为sonar的数据库和名为sonar，密码为sonar的管理员</p><pre><code class="bash">sudo -u postgres psql;# 创建数据库CREATE DATABASE sonar;# 创建管理员CREATE USER sonar WITH ENCRYPTED PASSWORD &#39;sonar&#39;;# 将数据库 sonar 授权给 sonar 进行管理GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;# 更改 sonar 的所有权ALTER DATABASE sonar OWNER TO sonar;\q</code></pre><h2 id="4-安装并配置SonarQube"><a href="#4-安装并配置SonarQube" class="headerlink" title="4 安装并配置SonarQube"></a>4 安装并配置SonarQube</h2><h3 id="4-1-安装-SonarQube"><a href="#4-1-安装-SonarQube" class="headerlink" title="4.1 安装 SonarQube"></a>4.1 安装 SonarQube</h3><pre><code class="bash">wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.3.1.34397.zipunzip sonarqube-8.3.1.34397.zipmv sonarqube-8.3.1.34397 /usr/local/sonarqube-8.3.1</code></pre><h3 id="4-2-编辑-sonar-properties"><a href="#4-2-编辑-sonar-properties" class="headerlink" title="4.2 编辑 sonar.properties"></a>4.2 编辑 sonar.properties</h3><pre><code class="bash">vim /usr/local/sonarqube-8.3.1/conf/sonar.properties</code></pre><p>内容如下：</p><pre><code class="bash"># 数据库（必需）sonar.jdbc.username=sonarsonar.jdbc.password=sonarsonar.jdbc.url=jdbc:postgresql://localhost/sonarsonar.jdbc.maxActive=60sonar.jdbc.maxIdle=5sonar.jdbc.minIdle=2sonar.jdbc.maxWait=5000sonar.jdbc.minEvictableIdleTimeMillis=600000sonar.jdbc.timeBetweenEvictionRunsMillis=30000sonar.jdbc.removeAbandoned=truesonar.jdbc.removeAbandonedTimeout=60# 网页服务（可选）sonar.web.host=127.0.0.1sonar.web.port=9000sonar.web.javaOpts=-server -Xms512m -Xmx512m -XX:+HeapDumpOnOutOfMemoryErrorsonar.search.javaOpts=-server -Xms512m -Xmx512m -XX:+HeapDumpOnOutOfMemoryErrorsonar.ce.javaOpts=-server -Xms512m -Xmx512m -XX:+HeapDumpOnOutOfMemoryError# LDAP（可选）sonar.security.realm=LDAPsonar.security.savePassword=truesonar.authenticator.downcase = trueldap.url=ldap://&lt;ldap-server&gt;.zone24x7.lk:389ldap.bindDn=&lt;ldap-user&gt;@zone24x7.lkldap.bindPassword=&lt;ldap-password&gt;ldap.user.baseDn=dc=zone24x7,dc=lkldap.user.request=(&amp;(objectClass=User)(sAMAccountName={login}))ldap.user.realNameAttribute=cnldap.user.emailAttribute=mail</code></pre><h2 id="5-安装并配置-sonar-scanner"><a href="#5-安装并配置-sonar-scanner" class="headerlink" title="5 安装并配置 sonar-scanner"></a>5 安装并配置 sonar-scanner</h2><h3 id="5-1-安装-sonar-scanner"><a href="#5-1-安装-sonar-scanner" class="headerlink" title="5.1 安装 sonar-scanner"></a>5.1 安装 sonar-scanner</h3><pre><code class="bash">wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.3.0.2102-linux.zipunzip sonar-scanner-cli-4.3.0.2102-linux.zipmv sonar-scanner-4.3.0.2102-linux/ /usr/local/sonar-scanner-4.3.0</code></pre><h3 id="5-2-配置-sonar-scanner"><a href="#5-2-配置-sonar-scanner" class="headerlink" title="5.2 配置 sonar-scanner"></a>5.2 配置 sonar-scanner</h3><pre><code class="bash">vim /usr/local/sonar-scanner-4.3.0/conf/sonar-scanner.properties</code></pre><p>内容如下：</p><pre><code class="bash">sonar.host.url=http://localhost:9000sonar.sourceEncoding=UTF-8</code></pre><h2 id="6-配置-sonar-账号"><a href="#6-配置-sonar-账号" class="headerlink" title="6 配置 sonar 账号"></a>6 配置 sonar 账号</h2><pre><code class="bash">useradd --system --no-create-home sonarchown -R sonar:sonar /usr/local/sonarqube-8.3.1chown -R sonar:sonar /usr/local/sonar-scanner-4.3.0</code></pre><h1 id="7-创建sonar-service管理-sonar"><a href="#7-创建sonar-service管理-sonar" class="headerlink" title="7 创建sonar.service管理 sonar"></a>7 创建sonar.service管理 sonar</h1><pre><code class="bash">vim /etc/systemd/system/sonar.service</code></pre><p>内容如下：</p><pre><code class="bash">[Unit]Description=SonarQube ServerAfter=syslog.target network.target[Service]Type=forkingExecStart=/usr/local/sonarqube-8.3.1/bin/linux-x86-64/sonar.sh startExecStop=/usr/local/sonarqube-8.3.1/bin/linux-x86-64/sonar.sh stopLimitNOFILE=65536LimitNPROC=4096User=sonarGroup=sonarRestart=on-failure[Install]WantedBy=multi-user.target</code></pre><h3 id="8-修改-sysctl-conf"><a href="#8-修改-sysctl-conf" class="headerlink" title="8 修改 sysctl.conf"></a>8 修改 sysctl.conf</h3><pre><code class="bash"># 查找 xx-sysctl.conf,结果一般为：00-sysctl.conf或者99-sysctl.conf等ls /etc/sysctl.d/# 修改 xx-sysctl.confvim /etc/sysctl.d/xx-sysctl.conf# 在文后添加如下一行：vm.max_map_count = 262144# 加载改动sudo sysctl -p /etc/sysctl.d/xx-sysctl.conf</code></pre><h2 id="9-启动-SonarQube-服务"><a href="#9-启动-SonarQube-服务" class="headerlink" title="9 启动 SonarQube 服务"></a>9 启动 SonarQube 服务</h2><pre><code class="bash"># 加载服务sudo systemctl daemon-reload# 启动服务sudo systemctl start sonar.service# 开机自启sudo systemctl enable sonar.service# 查看服务状态sudo systemctl status sonar.service# 检查端口占用netstat -tulpn | grep 9000</code></pre><h2 id="10-登录并安装汉化插件"><a href="#10-登录并安装汉化插件" class="headerlink" title="10 登录并安装汉化插件"></a>10 登录并安装汉化插件</h2><p>默认用户以及密码：admin/admin</p><p><img src="image-20200609100020148.png" alt="image-20200609100020148"></p><p><img src="image-20200609100241703.png" alt="image-20200609100241703"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-安装依赖&quot;&gt;&lt;a href=&quot;#1-安装依赖&quot; class=&quot;headerlink&quot; title=&quot;1 安装依赖&quot;&gt;&lt;/a&gt;1 安装依赖&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;yum install -y epel-release unzip
+      
+    
+    </summary>
+    
+    
+      <category term="SonarQube" scheme="https://blog.jiangyu365.com/categories/SonarQube/"/>
+    
+    
+      <category term="CentOS7" scheme="https://blog.jiangyu365.com/tags/CentOS7/"/>
+    
+      <category term="SonarQube" scheme="https://blog.jiangyu365.com/tags/SonarQube/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7下安装与配置OpenLDAP</title>
+    <link href="https://blog.jiangyu365.com/2020/07/05/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AEOpenLDAP/"/>
+    <id>https://blog.jiangyu365.com/2020/07/05/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AEOpenLDAP/</id>
+    <published>2020-07-05T03:48:05.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、安装OpenLDAP"><a href="#1、安装OpenLDAP" class="headerlink" title="1、安装OpenLDAP"></a>1、安装OpenLDAP</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="bash">yum install -y openldap openldap-servers openldap-clients</code></pre><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><pre><code class="bash">sudo systemctl start slapdsudo systemctl enable slapdsudo systemctl status slapd</code></pre><h3 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h3><pre><code class="bash">firewall-cmd --add-service=ldap</code></pre><h2 id="2、配置-LDAP-服务"><a href="#2、配置-LDAP-服务" class="headerlink" title="2、配置 LDAP 服务"></a>2、配置 LDAP 服务</h2><ol><li>创建OpenLDAP管理员，注意记录哈希值</li></ol><pre><code class="bash">slappasswd</code></pre><p><img src="01.png" alt=""></p><ol start="2"><li>创建一个<strong>LDIF</strong>文件 （<strong>ldaprootpasswd.ldif</strong>）， 用于向 LDAP 目录添加条目</li></ol><pre><code class="bash">vim ldaprootpasswd.ldif</code></pre><p>在下面添加如下内容：</p><p><strong>注意：将PASSWORD替换为前面获取的哈希值</strong></p><pre><code class="text">dn: olcDatabase={0}config,cn=configchangetype: modifyadd: olcRootPWolcRootPW: {SSHA}PASSWORD</code></pre><p>内容解释：</p><ul><li><strong>olcDatabase</strong>：指示特定的数据库实例名称，通常可以在<strong>/etc/openldap/slapd.d/cn_config</strong>中找到</li><li>cn=config： 表示全局配置选项</li><li>olcRootPW：是创建管理用户时获取的哈希字符串</li></ul><ol start="3"><li>通过指定引用 ldap 服务器和上述文件的 URI 来添加相应的 LDAP 条目</li></ol><pre><code class="bash">sudo ldapadd -Y EXTERNAL -H ldapi:/// -f ldaprootpasswd.ldif  </code></pre><h2 id="3、配置LDAP数据库"><a href="#3、配置LDAP数据库" class="headerlink" title="3、配置LDAP数据库"></a>3、配置LDAP数据库</h2><ol><li><p>将LDAP提供的示例数据库配置文件复制到 <strong>/var/lib/ldap</strong>目录中，并把该文件授权给ldap:ldap</p><p>注意：ldap:ldap LDAP服务会自动创建</p></li></ol><pre><code class="bash">sudo cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIGsudo chown -R ldap:ldap /var/lib/ldap/DB_CONFIGsudo systemctl restart slapd</code></pre><ol start="2"><li>从/etc/openldap/架构目录中导入一些基本的 LDAP 架构，如下所示：</li></ol><pre><code class="bash">sudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldifsudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldifsudo ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif</code></pre><ol start="3"><li>在添加具体的域文件，并创建为<strong>ldapdomain.ldif</strong>的文件</li></ol><pre><code class="bash">sudo vim ldapdomain.ldif</code></pre><p>内容如下，注意讲example 替换为自己的域名，将PASSWORD替换为前面获取的哈希值</p><pre><code class="bash">dn: olcDatabase={1}monitor,cn=configchangetype: modifyreplace: olcAccessolcAccess: {0}to * by dn.base=&quot;gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth&quot;  read by dn.base=&quot;cn=Manager,dc=example,dc=com&quot; read by * nonedn: olcDatabase={2}hdb,cn=configchangetype: modifyreplace: olcSuffixolcSuffix: dc=example,dc=comdn: olcDatabase={2}hdb,cn=configchangetype: modifyreplace: olcRootDNolcRootDN: cn=Manager,dc=example,dc=comdn: olcDatabase={2}hdb,cn=configchangetype: modifyadd: olcRootPWolcRootPW: {SSHA}PASSWORDdn: olcDatabase={2}hdb,cn=configchangetype: modifyadd: olcAccessolcAccess: {0}to attrs=userPassword,shadowLastChange by  dn=&quot;cn=Manager,dc=example,dc=com&quot; write by anonymous auth by self write by * noneolcAccess: {1}to dn.base=&quot;&quot; by * readolcAccess: {2}to * by dn=&quot;cn=Manager,dc=example,dc=com&quot; write by * read</code></pre><ol start="4"><li>通过指定引用 ldap 服务器和上述文件的 URI 来添加相应的 LDAP 条目</li></ol><pre><code class="bash">sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f ldapdomain.ldif</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1、安装OpenLDAP&quot;&gt;&lt;a href=&quot;#1、安装OpenLDAP&quot; class=&quot;headerlink&quot; title=&quot;1、安装OpenLDAP&quot;&gt;&lt;/a&gt;1、安装OpenLDAP&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="OpenLDAP" scheme="https://blog.jiangyu365.com/categories/OpenLDAP/"/>
+    
+    
+      <category term="CentOS7" scheme="https://blog.jiangyu365.com/tags/CentOS7/"/>
+    
+      <category term="OpenLDAP" scheme="https://blog.jiangyu365.com/tags/OpenLDAP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RocketMQ系列：1.CentOS7安装单机版RocketMQ</title>
+    <link href="https://blog.jiangyu365.com/2020/06/19/RocketMQ%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA%E7%89%88RocketMQ/"/>
+    <id>https://blog.jiangyu365.com/2020/06/19/RocketMQ%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA%E7%89%88RocketMQ/</id>
+    <published>2020-06-19T16:29:36.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、安装JDK"><a href="#1、安装JDK" class="headerlink" title="1、安装JDK"></a>1、安装JDK</h2><p>Oracle官网下载jdk，并上传到/usr/local/目录下，本文采用的为：jdk-8u192-linux-x64.tar.gz</p><pre><code class="bash"># 解压tar zxvf jdk-8u192-linux-x64.tar.gz# 配置环境变量vim /etc/profileexport JAVA_HOME=/usr/local/jdk1.8.0_192export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jarexport PATH=$PATH:$JAVA_HOME/bin# 重新加载环境变量source /etc/profile# 测试java -version</code></pre><h2 id="2、安装RocketMQ"><a href="#2、安装RocketMQ" class="headerlink" title="2、安装RocketMQ"></a>2、安装RocketMQ</h2><pre><code class="bash"># 进入安装目录cd /usr/local/# 下载RocketMQwget https://mirrors.tuna.tsinghua.edu.cn/apache/rocketmq/4.6.1/rocketmq-all-4.6.1-bin-release.zip# 解压unzip rocketmq-all-4.6.1-bin-release.zip# 重命名安装目录mv rocketmq-all-4.6.1-bin-release rocketmq</code></pre><h2 id="3、调整启动内存"><a href="#3、调整启动内存" class="headerlink" title="3、调整启动内存"></a>3、调整启动内存</h2><p>RocketMQ默认的虚拟机内存较大，启动时可能会因为内存不足导致失败，所以需要调整默认内存</p><pre><code class="bash">vim /usr/local/rocketmq/bin/runserver.shJAVA_OPT=&quot;${JAVA_OPT} -server -server -Xms256m -Xmx256m -Xmn128m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m&quot;vim /usr/local/rocketmq/bin/runbroker.shJAVA_OPT=&quot;${JAVA_OPT} -server -Xms256m -Xmx256m -Xmn128m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m&quot;</code></pre><p>参考设置：</p><p>JAVA_OPT=“${JAVA_OPT} -server -xms256m -xmx256m -xmn128m -xx</p><h2 id="4、启动RocketMQ"><a href="#4、启动RocketMQ" class="headerlink" title="4、启动RocketMQ"></a>4、启动RocketMQ</h2><pre><code class="bash">nohup sh /usr/local/rocketmq/bin/mqnamesrv &gt; /usr/local/rocketmq/logs/namesrv.log &amp;nohup sh /usr/local/rocketmq/bin/mqbroker -n localhost:9876 &gt; /usr/local/rocketmq/logs/broker.log &amp;</code></pre><h2 id="5、使用脚本管理RocketMQ"><a href="#5、使用脚本管理RocketMQ" class="headerlink" title="5、使用脚本管理RocketMQ"></a>5、使用脚本管理RocketMQ</h2><ol><li><p>编写管理脚本：rocketmq.sh</p><pre><code>#!/usr/bin/env bash## rocketmq - this script starts and stops the rocketmq daemon## chkconfig: - 85 15ROCKETMQ_HOME=/usr/local/rocketmqROCKETMQ_BIN=${ROCKETMQ_HOME}/binADDR=`hostname -i`:9876LOG_DIR=${ROCKETMQ_HOME}/logsNAMESERVER_LOG=${LOG_DIR}/namesrv.logBROKER_LOG=${LOG_DIR}/broker.logstart() {    if [ ! -d ${LOG_DIR} ];then        mkdir ${LOG_DIR}    fi    cd ${ROCKETMQ_HOME}    nohup sh bin/mqnamesrv &gt; ${NAMESERVER_LOG} 2&gt;&amp;1 &amp;    echo -n &quot;The Name Server boot success...&quot;    nohup sh bin/mqbroker -n ${ADDR} &gt; ${BROKER_LOG} 2&gt;&amp;1 &amp;    echo -n &quot;The broker[%s, ${ADDR}] boot success...&quot;}stop() {    cd ${ROCKETMQ_HOME}    sh bin/mqshutdown broker    sleep 1    sh bin/mqshutdown namesrv}restart() {    stop    sleep 10    start}case &quot;$1&quot; in    start)        start    ;;    stop)        stop    ;;    restart)        restart    ;;    *)echo $&quot;Usage: $0 {start|stop|restart}&quot;exit 2esac</code></pre></li><li><p>将rocketmq服务添加为开机启动服务</p><pre><code class="bash">chmod a+x rocketmq.shsudo mv rocketmq.sh /etc/init.d/rocketmqchkconfig --add rocketmq</code></pre></li><li><p>通过service命令来管理rocketmq</p><pre><code class="bash"># 启动：service rocketmq start# 关闭service rocketmq stop# 重启service rocketmq restart</code></pre></li></ol><h2 id="5、安装可视化服务配置"><a href="#5、安装可视化服务配置" class="headerlink" title="5、安装可视化服务配置"></a>5、安装可视化服务配置</h2><ol><li><p>下载源码：<a href="https://github.com/apache/incubator-rocketmq-externals">https://github.com/apache/incubator-rocketmq-externals</a></p></li><li><p>根据说明文档以及实际需求更改配置文件：application.properties</p></li><li><p>修改依赖：</p><p>修改 <code>pom.xml</code> ，修改RocketMQ相关依赖的版本，找到</p><pre><code>&lt;rocketmq.version&gt;4.4.0&lt;/rocketmq.version&gt;</code></pre><p>改为自己的版本，本文使用的为：4.6.1</p></li><li><p>修改代码</p><p>修改pom.xml后,org.apache.rocketmq.console.service.impl.MessageServiceImpl#queryMessageByTopic编译会报错，所以需要修改一下：将：<br>DefaultMQPullConsumer consumer = new DefaultMQPullConsumer(MixAll.TOOLS_CONSUMER_GROUP, null);<br>改为：<br>RPCHook rpcHook = null;<br>DefaultMQPullConsumer consumer = new DefaultMQPullConsumer(MixAll.TOOLS_CONSUMER_GROUP, rpcHook);</p></li><li><p>打包构建：</p><pre><code class="bash"># 切换到代码根目录cd rocketmq-externals# 切换到控制台目录cd rocketmq-console# 构建mvn clean package -DskipTests</code></pre><pre><code class="bash"># 创建数据目录mkdir -p /usr/local/rocketmq/rocketmq-console/data# 上传rocketmq-console-ng-1.0.1.jar到/usr/local/rocketmq/rocketmq-console# 在/usr/local/rocketmq/rocketmq-console/data 创建账号脚本users.properties# 内容：# username=password[,N] 1:管理员，0：普通用户#定义管理员 admin=admin,1</code></pre></li></ol><p>#定义普通用户<br>user1=user0<br>user2=user0</p><h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><p>java -jar /usr/local/rocketmq/rocketmq-console/rocketmq-console-ng-1.0.1.jar<br>```</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1、安装JDK&quot;&gt;&lt;a href=&quot;#1、安装JDK&quot; class=&quot;headerlink&quot; title=&quot;1、安装JDK&quot;&gt;&lt;/a&gt;1、安装JDK&lt;/h2&gt;&lt;p&gt;Oracle官网下载jdk，并上传到/usr/local/目录下，本文采用的为：jdk-8u192-
+      
+    
+    </summary>
+    
+    
+      <category term="RocketMQ" scheme="https://blog.jiangyu365.com/categories/RocketMQ/"/>
+    
+    
+      <category term="RocketMQ单机版" scheme="https://blog.jiangyu365.com/tags/RocketMQ%E5%8D%95%E6%9C%BA%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7 安装GitLab</title>
+    <link href="https://blog.jiangyu365.com/2020/02/29/CentOS7-%E5%AE%89%E8%A3%85GitLab/"/>
+    <id>https://blog.jiangyu365.com/2020/02/29/CentOS7-%E5%AE%89%E8%A3%85GitLab/</id>
+    <published>2020-02-29T10:53:50.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="添加gitlab源"><a href="#添加gitlab源" class="headerlink" title="添加gitlab源"></a>添加gitlab源</h1><p>新建 gitlab-ce.repo</p><pre><code class="bash">vi /etc/yum.repos.d/gitlab-ce.repo# 添加如下内容[gitlab-ce]name=Gitlab CE Repositorybaseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/gpgcheck=0enabled=1# 再执行yum makecache</code></pre><h1 id="安装和配置必要的依赖"><a href="#安装和配置必要的依赖" class="headerlink" title="安装和配置必要的依赖"></a>安装和配置必要的依赖</h1><pre><code class="bash">yum install -y curl policycoreutils-python openssh-server</code></pre><h1 id="安装Postfix来实现邮件通知"><a href="#安装Postfix来实现邮件通知" class="headerlink" title="安装Postfix来实现邮件通知"></a>安装Postfix来实现邮件通知</h1><pre><code class="bash">yum install -y postfix &amp;&amp; systemctl enable postfix &amp;&amp; systemctl start postfix</code></pre><h1 id="安装指定版本的gitlab-ce"><a href="#安装指定版本的gitlab-ce" class="headerlink" title="安装指定版本的gitlab-ce"></a>安装指定版本的gitlab-ce</h1><pre><code class="bash">yum list gitlab-ceyum install -y gitlab-ce-12.8.1-ce.0.el7.x86_64</code></pre><h1 id="配置gitlab"><a href="#配置gitlab" class="headerlink" title="配置gitlab"></a>配置gitlab</h1><pre><code class="bash">vim /etc/gitlab/gitlab.rb# 改 external_url &#39;http://gitlab.example.com&#39;# 为 external_url &#39;http://10.0.170.1&#39;</code></pre><h1 id="应用配置好的配置"><a href="#应用配置好的配置" class="headerlink" title="应用配置好的配置"></a>应用配置好的配置</h1><pre><code class="bash">gitlab-ctl reconfigure# 查看状态gitlab-ctl status</code></pre><h1 id="登录页面初始化用户密码"><a href="#登录页面初始化用户密码" class="headerlink" title="登录页面初始化用户密码"></a>登录页面初始化用户密码</h1><p><a href="http://10.0.170.1">http://10.0.170.1</a><br>密码：Jiang$Yu5201314</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;添加gitlab源&quot;&gt;&lt;a href=&quot;#添加gitlab源&quot; class=&quot;headerlink&quot; title=&quot;添加gitlab源&quot;&gt;&lt;/a&gt;添加gitlab源&lt;/h1&gt;&lt;p&gt;新建 gitlab-ce.repo&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;ba
+      
+    
+    </summary>
+    
+    
+      <category term="gitlab" scheme="https://blog.jiangyu365.com/categories/gitlab/"/>
+    
+    
+      <category term="CentOS7" scheme="https://blog.jiangyu365.com/tags/CentOS7/"/>
+    
+      <category term="GitLab" scheme="https://blog.jiangyu365.com/tags/GitLab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis系列：1.CentOS7安装Redis</title>
+    <link href="https://blog.jiangyu365.com/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/"/>
+    <id>https://blog.jiangyu365.com/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/</id>
+    <published>2020-02-26T10:10:15.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、下载源码并编译安装"><a href="#1、下载源码并编译安装" class="headerlink" title="1、下载源码并编译安装"></a>1、下载源码并编译安装</h2><pre><code class="bash">cd /optwget http://download.redis.io/releases/redis-5.0.7.tar.gz# 解压tar xzf redis-5.0.7.tar.gz# 编译cd redis-5.0.7make# 安装到/usr/local/redismake PREFIX=/usr/local/redis install# 复制解压目录下的配置文件到安装目录/usr/local/redis下cp /opt/redis-5.0.7/redis.conf /usr/local/redis/bin/# 启动服务端/usr/local/redis/bin/redis-server</code></pre><h2 id="2、Redis配置详解"><a href="#2、Redis配置详解" class="headerlink" title="2、Redis配置详解"></a>2、Redis配置详解</h2><pre><code class="bas"># 修改配置文件vim /usr/local/redis/bin/redis.conf# 前10个# 1.默认不是以守护进程的方式运行，将daemonize no改为daemonize yes以守护进程的方式运行：    daemonize yes# 2.当redis以守护进程方式运行时，会默认将pid写在/var/run/redis.pid文件，可以通过修改pidfile的选项，指定文件位置    pidfile /var/run/redis.pid# 3.Redis的监听端口默认为：6379，可以通过修改port选项进行修改    port 6379# 4.绑定允许访问主机的地址，默认为：127.0.0.1可以通过修改bind选项进行修改    bind 127.0.0.1# 5.设置客户端限制后，多长时间进行断开连接，默认为300，可以通过修改timeout进行设定，如果设置为0则表示关闭该功能    timeout 300# 6.指定日志记录级别，默认为verbose，共四个级别：debug、verbose、notice、warning    loglevel verbose# 7.日志记录方式，默认为标准输出，如果Redis使用守护进程方式运行，这里又配置为标志输出，那么日志将发送给 /dev/null    logfile stdout# 8.设置数据库的数量，默认数据库数量为16个，可以通过修改databases 进行设定    databases 16# 9.指定在多长时间内，又多少次更新操作后，就将数据同步到数据文件，可以通过修改 save进行设置    save &lt;seconds&gt; &lt;changes&gt;    默认配置文件中提供了三个条件:    save 900 1    save 300 10    save 60 10000    分别表示:    900秒 1个更改    300秒 10个更改    60秒  10000个更改# 10.指定存储到本地数据库的数据是否进行压缩，默认yes，Redis采用的时LZF压缩算法，如果为了节省CPU时间可以关闭，但是会导致数据文件巨大，占用磁盘空间rdbcompression yes# 中间10个# 11.指定本地数据库文件名，默认为dump.rdb    dbfilename dump.rdb# 12.指定本地数据库存放的目录    dir ./# 13.设置当机器为从机slav服务时，设置主机master的服务IP以及端口，在启动Redis时，会自动从master同步数据    slaveof &lt;masterip&gt; &lt;masterport&gt;# 14.当master服务设置了密码保护时，slav服务连接master需要密码    masterauth &lt;master-password&gt;# 15.设置Redis连接密码，如果配置了连接密码，客服端在连接Redis时需要通过 AUTH &lt;password&gt;命令提供密码，默认时关闭的    requirepass foobared# 16.设置同一时间客户端连接的最大数，默认是无限制的，maxclients 0表示无限制，当超过限制后，就会报 max number of clients reached 错误    maxclients 128# 17.指定Redis最大内存限制，Redis启动时会把数据加载到内存中，当达到最大内存后Redis会先尝试清除已到期或者即将到期的key，如果这样操作之后仍然达到最大值，那么不能再进行写操作，只能进行读操作，默认为服务器最终内存    maxmemory &lt;bytes&gt;# 18.指定是否再每次更新操作后进行日志记录，Redis默认情况下是异步将数据写入磁盘，如果不开启可能在断电后造成数据丢失，因为redis本身同步数据文件是按照配置的save条件来同步的，所有的数据可能在内存中，默认值为 no    appendonly no# 19.指定更新的文件名，默认为appendonly.aof    appendfilename appendonly.aof# 20.指定更新日志条件，共有三个可选值    no # 表示等操作系统进行数据缓存到同步    always # 表示每次更新操作后手动调节fsync(),将数据写到磁盘，慢但是安全，    everysec # 表示每秒同步一次，折中方案，默认值# 结尾10个# 21.是否启用虚拟内存机制，默认值为no，vm机制将数据分页存放，由Redis将访问量较少的页，放到swap磁盘，访问多的页面有磁盘放到内存    vm-enabled no# 22.虚拟内存文件的路径，默认值为/tmp/redis.swap,不可以多个Redis实例共享    vm-swap-file /tmp/redis.swap# 23.将所有大于最大虚拟内存的数据存入虚拟内存，不论vm-max-memoryz设置多少，所有，索引数据都是内存存储的，也就是说，当vm-max-memory设置为0时，就是将所有的value存放在磁盘之中，默认值为0    vm-max-memory 0# 24.Redis swap文件分成了很多page，一个对象可以保存在多个page上，但是一个page上不能被多个对象共享，vm-page-size时要根据存储的数据大小来设定，官方建议，如果是存放很多小对象，page最好设置为32bytes或者64bytes；如果存储对象很大，就用更大的page，若是不确定就用默认值    vm-page-size 32# 25.设置swap文件中的page数量，由于页表是存放在内存中的，在磁盘上每8个page就会消耗1个byte的内存    vm-pages 134217728# 26.设置访问swap文件的线程数，最好不要超过机器的cpu核心数，如果设置为0，那么所有的swap文件都是串行的，可能会导致较长时间的延迟，默认值为4    vm-max-threads 4# 27.设置在向客服端应答时，是否把较小的包合并为一个包进行发送，默认开启    glueoutputbuf yes# 28.指定在超过一定数量或者最大的元素超过临界值时，采用一种特殊的哈希算法    hash-max-zipmap-entries 64    hash-max-zimap-value 512# 29.指定是否激活重置hash，默认开启    activerehashing yes# 指定包含其他的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又又自己的特定配置文件    include /path/to/local.conf</code></pre><h2 id="3、自定义配置"><a href="#3、自定义配置" class="headerlink" title="3、自定义配置"></a>3、自定义配置</h2><p>进入redis.conf所在的目录进行修改配置</p><pre><code class="bash">daemonize yesbind 127.0.0.1 #注释掉，允许本机外的机器访问requirepass 设置密码</code></pre><h2 id="4、启动Redis"><a href="#4、启动Redis" class="headerlink" title="4、启动Redis"></a>4、启动Redis</h2><h3 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h3><pre><code class="bash">/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf</code></pre><h3 id="客服端启动"><a href="#客服端启动" class="headerlink" title="客服端启动"></a>客服端启动</h3><pre><code class="bash">/usr/local/redis/bin/redis-cli -h ip -p port -a password</code></pre><h3 id="关闭Redis"><a href="#关闭Redis" class="headerlink" title="关闭Redis"></a>关闭Redis</h3><p>第一种，非正常关闭</p><pre><code class="bash">ps -ef | grep -i rediskill -9 PID</code></pre><p>第二种，正常关闭，通过客户端进行shutdown</p><pre><code class="bash">/usr/local/redis/bin/redis-cli  shutdown -a password</code></pre><h2 id="5、设置开启启动"><a href="#5、设置开启启动" class="headerlink" title="5、设置开启启动"></a>5、设置开启启动</h2><h3 id="新建服务"><a href="#新建服务" class="headerlink" title="新建服务"></a>新建服务</h3><pre><code class="bash">chmod 644 /usr/local/redis/bin/redis.confvim /usr/lib/systemd/system/redis.service# 内容如下：[Unit]Description=RedisAfter=network.target[Service]Type=forkingPIDFile=/var/run/redis_6379.pidExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf --daemonize yesExecStop=/usr/local/bin/redis-cli -p 6379 shutdwn -a jiangyu5201314Restart =always[Install]WantedBy=multi-user.target</code></pre><h3 id="刷新配置"><a href="#刷新配置" class="headerlink" title="刷新配置"></a>刷新配置</h3><pre><code class="bash">systemctl daemon-reloadsystemctl enable redis.servicesystemctl start redis.service</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1、下载源码并编译安装&quot;&gt;&lt;a href=&quot;#1、下载源码并编译安装&quot; class=&quot;headerlink&quot; title=&quot;1、下载源码并编译安装&quot;&gt;&lt;/a&gt;1、下载源码并编译安装&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;cd /opt
+wget 
+      
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://blog.jiangyu365.com/categories/Redis/"/>
+    
+    
+      <category term="Redis安装" scheme="https://blog.jiangyu365.com/tags/Redis%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL系列：1.CentOS7安装MySQL数据库</title>
+    <link href="https://blog.jiangyu365.com/2020/02/26/MySQL%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>https://blog.jiangyu365.com/2020/02/26/MySQL%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
+    <published>2020-02-26T00:10:15.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1、下载并安装MySQL源"><a href="#1、下载并安装MySQL源" class="headerlink" title="1、下载并安装MySQL源"></a>1、下载并安装MySQL源</h1><pre><code class="bash">yum -y install wgetwget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpmyum -y localinstall mysql57-community-release-el7-8.noarch.rpmyum -y install mysql-community-server# 检查mysql源是否安装成功yum repolist enabled | grep &quot;mysql.*-community.*&quot;</code></pre><h1 id="2、启动MySQL服务并开启开机自启动"><a href="#2、启动MySQL服务并开启开机自启动" class="headerlink" title="2、启动MySQL服务并开启开机自启动"></a>2、启动MySQL服务并开启开机自启动</h1><pre><code class="bash">systemctl start mysqldsystemctl enable mysqldsystemctl daemon-reload</code></pre><h1 id="3、修改root本地登录密码"><a href="#3、修改root本地登录密码" class="headerlink" title="3、修改root本地登录密码"></a>3、修改root本地登录密码</h1><pre><code class="bash"># 获取安装时的临时密码,在第一次登录时需要使用这个密码grep &#39;temporary password&#39; /var/log/mysqld.log# 登录数据库mysql -u root -p# 修改密码ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;Jiang#Yu5201314&#39;;# 密码：Jiang#Yu5201314# 备注 mysql5.7默认密码策略要求密码必须是大小写字母数字特殊字母的组合，至少8位</code></pre><h1 id="4、设置允许远程登录"><a href="#4、设置允许远程登录" class="headerlink" title="4、设置允许远程登录"></a>4、设置允许远程登录</h1><p>Mysql默认不允许远程登录，我们需要设置下，并且防火墙开放3306端口或者关闭防火墙；</p><pre><code class="bash"># mysql -u root -pGRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;Jiang#Yu5201314&#39; WITH GRANT OPTION;\qfirewall-cmd --zone=public --add-port=3306/tcp --permanentfirewall-cmd --reload</code></pre><h1 id="5、配置默认编码为UTF-8"><a href="#5、配置默认编码为UTF-8" class="headerlink" title="5、配置默认编码为UTF-8"></a>5、配置默认编码为UTF-8</h1><p>修改/etc/my.cnf配置文件，在[mysqld]下添加编码配置，如下所示：</p><pre><code>[mysqld]character_set_server=utf8init_connect=&#39;SET NAMES utf8&#39;</code></pre><p>编辑保存完 重启mysql服务: systemctl restart mysqld<br>查看编码：</p><pre><code class="bash">mysql&gt; show variables like &#39;%character%&#39;;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;1、下载并安装MySQL源&quot;&gt;&lt;a href=&quot;#1、下载并安装MySQL源&quot; class=&quot;headerlink&quot; title=&quot;1、下载并安装MySQL源&quot;&gt;&lt;/a&gt;1、下载并安装MySQL源&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;yum -
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://blog.jiangyu365.com/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://blog.jiangyu365.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hibernate Validator</title>
+    <link href="https://blog.jiangyu365.com/2020/02/22/Hibernate-Validator/"/>
+    <id>https://blog.jiangyu365.com/2020/02/22/Hibernate-Validator/</id>
+    <published>2020-02-22T14:14:45.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hibernate-Validator"><a href="#Hibernate-Validator" class="headerlink" title="Hibernate Validator"></a>Hibernate Validator</h1><table><thead><tr><th>注解名</th><th>注解描述</th></tr></thead><tbody><tr><td>@NotNull</td><td>值不能为空</td></tr><tr><td>@Null</td><td>值必须为空</td></tr><tr><td>@Pattern(regex=)</td><td>字符串必须匹配正则表达式</td></tr><tr><td>@Size(min=,max=)</td><td>集合的元素数量必须在min和max之间</td></tr><tr><td>@CredCardNumber(ignoreNonDigitCharacter=)</td><td>字符串必须是信用卡卡号（美国国家标准）</td></tr><tr><td>@Email</td><td>字符串必须是Email地址</td></tr><tr><td>@Length(min=,max=)</td><td>检查字符串的长度</td></tr><tr><td>@NotBlank</td><td>字符串必须有字符</td></tr><tr><td>@NotEmpty</td><td>字符串不为null，集合必须有元素</td></tr><tr><td>@Range(min=,max=)</td><td>数字必须大于等于min，小于等于max</td></tr><tr><td>@SafeHtml</td><td>字符串必须是安全的html</td></tr><tr><td>@URL</td><td>字符串必须是合法的URL</td></tr><tr><td>@AsserFalse</td><td>值必须是false</td></tr><tr><td>@AsserTrue</td><td>值必须是true</td></tr><tr><td>@DecimalMax(value,inclusive=)</td><td>值必须小于等于(inclusive=true)/小于(inclusive=false)value属性指定的值；可以使用在字符串类型的属性上</td></tr><tr><td>@DecimalMin(value,inclusive=)</td><td>值必须大于等于(inclusive=true)/大于(inclusive=false)value属性指定的值；可以使用在字符串类型的属性上</td></tr><tr><td>@Digits(integer=,fraction=)</td><td>数字格式检查，integer指定整数部分的最大长度，fraction指定小数部分的最大长度</td></tr><tr><td>@Future</td><td>值必须是未来的日期</td></tr><tr><td>@Past</td><td>值必须是过去的日期</td></tr><tr><td>@Max(value=)</td><td>值必须小于等于value指定的值，不能用在字符串类型的属性上</td></tr><tr><td>@Min(value=)</td><td>值必须大于value指定的值，不能用在字符串类型的属性上</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hibernate-Validator&quot;&gt;&lt;a href=&quot;#Hibernate-Validator&quot; class=&quot;headerlink&quot; title=&quot;Hibernate Validator&quot;&gt;&lt;/a&gt;Hibernate Validator&lt;/h1&gt;&lt;tabl
+      
+    
+    </summary>
+    
+    
+      <category term="JavaEE" scheme="https://blog.jiangyu365.com/categories/JavaEE/"/>
+    
+      <category term="注解校验" scheme="https://blog.jiangyu365.com/categories/JavaEE/%E6%B3%A8%E8%A7%A3%E6%A0%A1%E9%AA%8C/"/>
+    
+    
+      <category term="常用注解" scheme="https://blog.jiangyu365.com/tags/%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7安装与管理系统初始化</title>
+    <link href="https://blog.jiangyu365.com/2020/02/22/CentOS7%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    <id>https://blog.jiangyu365.com/2020/02/22/CentOS7%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96/</id>
+    <published>2020-02-22T14:06:39.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CentOS7安装与管理教程"><a href="#CentOS7安装与管理教程" class="headerlink" title="CentOS7安装与管理教程"></a>CentOS7安装与管理教程</h1><h2 id="1-配置网络"><a href="#1-配置网络" class="headerlink" title="1. 配置网络"></a>1. 配置网络</h2><pre><code class="bash"># 查询网卡信息ip addr show# 备份网络配置cp -rf /etc/sysconfig/network-scripts/ifcfg-ens32 /etc/sysconfig/network-scripts/ifcfg-ens32-back# 配置网络sed -i &quot;s/BOOTPROTO=static/BOOTPROTO=static/g&quot; /etc/sysconfig/network-scripts/ifcfg-ens32sed -i &quot;s/ONBOOT=no/ONBOOT=yes/g&quot; /etc/sysconfig/network-scripts/ifcfg-ens32cat &gt;&gt;/etc/sysconfig/network-scripts/ifcfg-ens32&lt;&lt;EOFIPADDR=11.0.0.4GATEWAY=11.0.0.2NETMASK=255.0.0.0DNS1=11.0.0.2NM_CONTROLLED=noEOF# 重启网络服务systemctl restart network# 测试网络ping -c4 baidu.com</code></pre><h2 id="2-关闭防火墙"><a href="#2-关闭防火墙" class="headerlink" title="2. 关闭防火墙"></a>2. 关闭防火墙</h2><pre><code class="bash"># 停止防火墙服务systemctl stop firewalld# 移除防火墙开机自启动systemctl disable firewalld</code></pre><h2 id="3-关闭-selinux"><a href="#3-关闭-selinux" class="headerlink" title="3. 关闭 selinux"></a>3. 关闭 selinux</h2><pre><code class="bash"># 临时关闭setenforce 0# 永久关闭sed -i &quot;s/SELINUX=enforcing/SELINUX=disabled/g&quot; /etc/selinux/config# 重启系统init 6</code></pre><h2 id="4-开启-SSH服务"><a href="#4-开启-SSH服务" class="headerlink" title="4. 开启 SSH服务"></a>4. 开启 SSH服务</h2><pre><code class="bash"># 配置 SSH 服务# 禁用默认的22端口，将22端口改为47422端口或者其他端口sed -i &quot;s/#Port 22/Port 47422/g&quot; /etc/ssh/sshd_config# 允许root远程连接，若不允许则改为nosed -i &quot;s/#PermitRootLogin yes/PermitRootLogin yes/g&quot; /etc/ssh/sshd_config# 禁止SSH密码尝试失败次数为 6 次sed -i &quot;s/#MaxAuthTries 6/MaxAuthTries 6/g&quot; /etc/ssh/sshd_config# 设置SSH空闲超过15分钟后退出sed -i &quot;s/#ClientAliveInterval 0/ClientAliveInterval 900/g&quot; /etc/ssh/sshd_configsed -i &quot;s/#ClientAliveCountMax 0/ClientAliveCountMax 0/g&quot; /etc/ssh/sshd_config# 开启 SSH 服务systemctl start sshd.service# 允许开机自启动systemctl enable sshd.service</code></pre><h2 id="5-安装仓库源"><a href="#5-安装仓库源" class="headerlink" title="5. 安装仓库源"></a>5. 安装仓库源</h2><p><strong>注意：阿里、华为二选一即可</strong></p><pre><code class="bash"># 阿里Base仓库源curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo# 华为Base仓库源curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.huaweicloud.com/repository/conf/CentOS-7-anon.repo# 阿里EPEL仓库源curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo# 华为EPEL仓库源sed -i &quot;s/#baseurl/baseurl/g&quot; /etc/yum.repos.d/epel.reposed -i &quot;s/metalink/#metalink/g&quot; /etc/yum.repos.d/epel.reposed -i &quot;s@http://download.fedoraproject.org/pub@https://mirrors.huaweicloud.com@g&quot; /etc/yum.repos.d/epel.repo# 清理yum缓存yum clean all# 重新生成yum缓存yum makecache</code></pre><h2 id="6-安装工具包"><a href="#6-安装工具包" class="headerlink" title="6. 安装工具包"></a>6. 安装工具包</h2><pre><code class="bash"># 安装基础组件包yum -y groupinstall &quot;Base&quot; &quot;Compatibility Libraries&quot; &quot;Debugging Tools&quot; &quot;Development Tools&quot; &quot;System Adminstration Tools&quot; &quot;Dial-Up Networking Support&quot; &quot;Hardware Monitoring Utilities&quot; &quot;Performance Tools&quot;# 安装yum加速插件yum -y install yum-plugin-fastestmirror# 安装yum源增强工具yum -y install yum-utils# 安装命令补全插件yum -y install bash-completion bash-completion-extras# 安装LVM逻辑卷管理工具yum -y install lvm2# 安装系统性能监控工具yum -y install sysstat# 安装网络管理工具yum -y install net-tools# 安装vim编辑器yum -y install vim# 安装wget下载工具yum -y install wget# 安装tree目录工具yum -y install tree# 安装 Windows &lt;---&gt; Linux、Unix文件格式相互转换工具yum -y install dos2unix</code></pre><h2 id="7-移除多余系统内核"><a href="#7-移除多余系统内核" class="headerlink" title="7. 移除多余系统内核"></a>7. 移除多余系统内核</h2><pre><code class="bash"># 1.查看当前系统正在使用的内核信息uname -r# 2.查询当前系统中存在的内核rpm -qa | grep kernel# 3.使用 yum remove 移除与当前系统运行内核版本不符的内核以及内核工具包yum -y remove &lt;需要移除的内核以及内核工具包&gt;# 4.重启系统init 6# 示例如下：# uname -r 结果为：3.10.0-514.16.1.el7.x86_64# rpm -qa | grep kernel 结果如下：# kernel-3.10.0-327.el7.x86_64# kernel-headers-3.10.0-514.6.1.el7.x86_64# kernel-tools-libs-3.10.0-327.el7.x86_64# kernel-3.10.0-514.16.1.el7.x86_64# kernel-tools-3.10.0-327.el7.x86_64## 将与当前系统运行内核版本不符的内核以及内核工具包移除# yum -y remove kernel-3.10.0-327.el7.x86_64 kernel-tools-libs-3.10.0-327.el7.x86_64 kernel-tools-3.10.0-327.el7.x86_64</code></pre><h2 id="8-设置vim为默认编辑器"><a href="#8-设置vim为默认编辑器" class="headerlink" title="8. 设置vim为默认编辑器"></a>8. 设置vim为默认编辑器</h2><pre><code class="bash">echo &quot;alias vi=vim&quot; &gt;&gt;/etc/profilesource /etc/profile</code></pre><h2 id="9-vim配置"><a href="#9-vim配置" class="headerlink" title="9. vim配置"></a>9. vim配置</h2><pre><code class="bash">cat &gt;&gt; /etc/vimrc &lt;&lt;EOFset nuset showmodeset rulerset aiset autoindentset encoding=utf-8set termencoding=utf-8set fileencoding=utf-8set fileencodings=ucs-bom,utf-8,gbk,gb2312,cp936,gb18030,big5,euc-jp,euc-kr,latin-1set shiftwidth=4set tabstop=4inoremap &#39; &#39;&#39;&lt;ESC&gt;iinoremap &quot; &quot;&quot;&lt;ESC&gt;iinoremap ( ()&lt;ESC&gt;iinoremap [ []&lt;ESC&gt;iinoremap &lt; &lt;&gt;&lt;ESC&gt;iinoremap { {}&lt;ESC&gt;isyntax onEOF# 加载vim配置,报错不用处理source /etc/vimrc</code></pre><h2 id="10-修改主机名"><a href="#10-修改主机名" class="headerlink" title="10. 修改主机名"></a>10. 修改主机名</h2><pre><code class="bash">hostnamectl set-hostname &lt;主机名&gt;</code></pre><h2 id="11-附加知识点：防火墙基础"><a href="#11-附加知识点：防火墙基础" class="headerlink" title="11. 附加知识点：防火墙基础"></a>11. 附加知识点：防火墙基础</h2><ul><li><ol><li>firewalld服务启用/停用<br>启动一个服务：systemctl start firewalld.service<br>关闭一个服务：systemctl stop firewalld.service<br>重启一个服务：systemctl restart firewalld.service<br>显示一个服务的状态：systemctl status firewalld.service<br>在开机时启用一个服务：systemctl enable firewalld.service<br>在开机时禁用一个服务：systemctl disable firewalld.service<br>查看服务是否开机启动：systemctl is-enabled firewalld.service<br>查看已启动的服务列表：systemctl list-unit-files|grep enabled<br>查看启动失败的服务列表：systemctl –failed</li></ol></li><li><ol start="2"><li>配置firewalld-cmd<br>查看版本： firewall-cmd –version<br>查看帮助： firewall-cmd –help<br>显示状态： firewall-cmd –state<br>查看所有打开的端口： firewall-cmd –zone=public –list-ports<br>更新防火墙规则： firewall-cmd –reload<br>查看区域信息: firewall-cmd –get-active-zones<br>查看指定接口所属区域： firewall-cmd –get-zone-of-interface=eth0<br>拒绝所有包：firewall-cmd –panic-on<br>取消拒绝状态： firewall-cmd –panic-off<br>查看是否拒绝： firewall-cmd –query-panic</li></ol></li><li><ol start="3"><li>端口管理：<br>添加： firewall-cmd –zone=public –add-port=80/tcp –permanent （–permanent 永久生效，没有此参数重启后失效）<br>重新载入：firewall-cmd –reload<br>查看：firewall-cmd –zone= public –query-port=80/tcp<br>删除：firewall-cmd –zone= public –remove-port=80/tcp –permanent</li></ol></li><li><ol start="4"><li>开启与关闭<br>正式环境下，看需要选择是否使用防火墙，这里为了方便后续配置，就先将其关闭：<br>关闭防火墙： systemctl stop firewalld<br>禁止开机自启： systemctl disable firewalld<br>查看防火墙状态： systemctl status firewalld</li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;CentOS7安装与管理教程&quot;&gt;&lt;a href=&quot;#CentOS7安装与管理教程&quot; class=&quot;headerlink&quot; title=&quot;CentOS7安装与管理教程&quot;&gt;&lt;/a&gt;CentOS7安装与管理教程&lt;/h1&gt;&lt;h2 id=&quot;1-配置网络&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="CentOS7" scheme="https://blog.jiangyu365.com/categories/CentOS7/"/>
+    
+    
+      <category term="CentOS7" scheme="https://blog.jiangyu365.com/tags/CentOS7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化博客搭建(4)--自动发布</title>
+    <link href="https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-4-%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/"/>
+    <id>https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-4-%E8%87%AA%E5%8A%A8%E5%8F%91%E5%B8%83/</id>
+    <published>2020-01-01T07:31:48.000Z</published>
+    <updated>2021-05-04T11:48:19.885Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0、前言"><a href="#0、前言" class="headerlink" title="0、前言"></a>0、前言</h1><p>在上一篇文章<a href="http://blog.jiangyu365.com/2020/01/01/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BAgithub%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2-3-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/">手把手教你搭建github自动化博客-3-博客配置</a>中，我们配置了博客的基本信息，并按照自己选择的博客主题，进行了配置，可以说工作已经完成了<strong>80%</strong>，剩下<strong>20%</strong>中的<strong>19%</strong>，将在这篇文章完成，剩余的<strong>1%</strong>的小细节，鄙人逐步完成。</p><h1 id="1、什么是Travis-CI"><a href="#1、什么是Travis-CI" class="headerlink" title="1、什么是Travis CI"></a>1、什么是Travis CI</h1><pre><code>Travis CI 是目前新兴的开源持续集成构建项目，它与jenkins，GO的很明显的特别在于采用yaml格式，同时他是在在线的服务，不像jenkins需要你本地打架服务器，简洁清新独树一帜。目前大多数的github项目都已经移入到Travis CI的构建队列中，据说Travis CI每天运行超过4000次完整构建。对于做开源项目或者github的使用者，快将你的项目加入Travis CI构建队列吧!</code></pre><h1 id="2、我们的目标"><a href="#2、我们的目标" class="headerlink" title="2、我们的目标"></a>2、我们的目标</h1><p>将myblog 博客源码以及文章的更新推送到远端的github仓库，然后啥也不管了，交由Travis CI 自动构建并推送到博客项目的master分支上。</p><h1 id="3、施工"><a href="#3、施工" class="headerlink" title="3、施工"></a>3、施工</h1><ol><li><p>登录 <a href="https://travis-ci.com/">Travis Pro的官网</a>,也许有人会问，为什么不选用免费版的地址，可能是我强上的姿势不对吧，总是无法获取到私有的myblog仓库，没有其他原因。<br><img src="image-20200213215856861.png" alt="Travis Pro的官网"></p></li><li><p>按照下面图片组的步骤进行操作即可，让Travis CI获取到我们的仓库</p><p><img src="001.png" alt="第1步"></p><p><img src="002.png" alt="第2步"></p><p><img src="003.png" alt="第3步"></p><p><img src="004.png" alt="第4步"></p><p><img src="005.png" alt="第5步"></p><p><img src="006.png" alt="第6步"></p></li><li><p><a href="https://github.com/settings/applications">在GitHub中</a>是否有 Travis CI 应用</p><p><img src="008.png" alt="Travis CI 应用-1"></p><p><img src="007.png" alt="Travis CI 应用-2"></p></li><li><p><a href="https://github.com/settings/tokens">新建Personal Access Token</a>，只勾选<strong>repo</strong>的权限并创建一个新的token，复制token并保存好！</p><p><img src="009.png" alt="新建token-1"></p><p><img src="010.png" alt="新建token-2"></p><p><img src="011.png" alt="新建token-3"></p></li><li><p>前往Travis CI 配置token</p><p><img src="012.png" alt="配置token-1"><br><img src="013.png" alt="配置token-2"></p></li><li><p>在myblog中创建** .travis.yml **文件，文件内容如下：</p><pre><code>sudo: falselanguage: node_jsnode_js:  - 10 # use nodejs v10 LTScache: npmbefore_install:  - git config --global user.name &quot;&lt;your github username&gt;&quot;  - git config --global user.email &quot;&lt;your email&gt;&quot;  - npm install -g hexo-cliinstall:  - npm ibranches:  only:    - master # build master branch onlyscript:  - hexo clean  - hexo generate # generate static filesafter_success:  - cd ./public  - git init  - git add --all .  - git commit -m &quot;Travis CI Auto Builder&quot;  - git push --quiet --force https://$GH_TOKEN@github.com/&lt;your github username&gt;/&lt;your github username&gt;.github.io.git master</code></pre><p><strong>注意：</strong></p><ul><li><strong>不要改变配置内容缩进；</strong></li><li><strong>将your github username和your email替换为你自己的</strong></li></ul></li></ol><h1 id="4、发布博客"><a href="#4、发布博客" class="headerlink" title="4、发布博客"></a>4、发布博客</h1><p>   在myblog目录下将<strong>node_modules</strong>文件夹删除后，鼠标右键选择<strong>Git Bash Here</strong> ，然后依次执行下列命令：</p><pre><code class="bash">   git add .   git commint -m &quot;搭建成功&quot;   git pull   git push</code></pre><h1 id="5、在浏览器中打开你的博客"><a href="#5、在浏览器中打开你的博客" class="headerlink" title="5、在浏览器中打开你的博客"></a>5、在浏览器中打开你的博客</h1><pre><code>   https://&lt;your github username&gt;.github.io</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;0、前言&quot;&gt;&lt;a href=&quot;#0、前言&quot; class=&quot;headerlink&quot; title=&quot;0、前言&quot;&gt;&lt;/a&gt;0、前言&lt;/h1&gt;&lt;p&gt;在上一篇文章&lt;a href=&quot;http://blog.jiangyu365.com/2020/01/01/%E6%89%8B
+      
+    
+    </summary>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化博客搭建(3)--博客配置</title>
+    <link href="https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-3-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/"/>
+    <id>https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-3-%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-01-01T06:41:48.000Z</published>
+    <updated>2021-05-04T11:48:19.885Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0、前言"><a href="#0、前言" class="headerlink" title="0、前言"></a>0、前言</h1><p>在上一篇文章<a href="http://blog.jiangyu365.com/2020/01/01/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%90%AD%E5%BB%BAgithub%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2-2-%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">手把手教你搭建github自动化博客-2-写作环境搭建</a>中，我们已经成功搭建了基础的博客环境并初始化了默认的博客源码；但是很多的默认内容都是要修改为我们自己的，主要有：</p><ol><li>博客基本信息；</li><li>让博客的基本配置更友好；</li><li>选择自己喜欢的主题等等。</li></ol><p>所以本篇文章中，我们就来完成这些内容的配置。</p><h1 id="1、基本信息配置"><a href="#1、基本信息配置" class="headerlink" title="1、基本信息配置"></a>1、基本信息配置</h1><p>Hexo 是一款优秀的博客框架，在使用 Hexo 搭建一个属于自己的博客网站后，我们还需要对其进行配置，使得 Hexo 更能满足自己的需求</p><p>这里所说的配置文件，是位于站点根目录下的 <strong>_config.yml</strong> 文件，可以直接用记事本打开，然后参照<a href="https://hexo.io/zh-cn/docs/index.html">官方说明文档</a>进行编辑即可。</p><p>下面的是我个人编辑并添加中文注释进行说明后的_config.yml文档，供各位参考</p><pre><code class="yaml"># Hexo Configuration## Docs: https://hexo.io/docs/configuration.html## Source: https://github.com/hexojs/hexo/# 网站title: 个人知识库 ## 网站标题subtitle: 姜宇的个人知识库 ## 网站副标题description: 一个系统分析师、设计师、IT技术爱好者的知识、经验以及工具分享小站 ## 网站描述keywords: 系统分析师,设计师,JAVA,MySQL,Linux,CentOS7,前端,VUE ## 网站的关键词。使用半角逗号 , 分隔多个关键词。author: 姜 宇 ## 作者名字language: zh-Hans ## 网站使用的语言,默认是en ，中文网站填zh-Hanstimezone: Asia/Shanghai ## 网站时区,默认为:计算机的预设置，可以不填，中国要填就是Asia/Shanghai(亚洲/上海)# 网址url: http://blog.jiangyu365.com ## URL，如果您的网站存放在子目录中，例如 http://yoursite.com/blog，则请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/root: / ## 网站根目录permalink: :year/:month/:day/:title/ ## 文章的链接格式 ，默认为 :year/:month/:day/:title/permalink_defaults: ## 永久链接中每个段的默认值pretty_urls: ## 通过覆盖 permalink 的值来美化文章的URL  trailing_index: true # 是否在永久链接中保留尾部的 index.html，设置为 false 时去除  trailing_html: true # 是否在永久链接中保留尾部的 .html, 设置为 false 时去除 (对尾部的 index.html无效)# 目录设置--一般不要更改source_dir: source ## 资源文件夹，这个文件夹用来存放内容,一般不用进行更改public_dir: public ## 公共文件夹，这个文件夹用于存放生成的站点文件tag_dir: tags ## 标签文件夹，默认为 tagsarchive_dir: archives ## 归档文件夹，默认为 archivescategory_dir: categories ## 分类文件夹 ，默认为 categoriescode_dir: downloads/code ## 代码目录 ，默认为 downloads/codei18n_dir: :lang ## 国际化（i18n）文件夹skip_render: ## 储存站长验证文件，跳过指定文件的渲染## 跳过指定文件的渲染。匹配到的文件将会被不做改动地复制到 public 目录中。您可使用 glob 表达式来匹配路径。## skip_render: &quot;mypage/**/*&quot;## 将会直接将 `source/mypage/index.html` 和 `source/mypage/code.js` 不做改动地输出到 &#39;public&#39; 目录## 你也可以用这种方法来跳过对指定文章文件的渲染## skip_render: &quot;_posts/test-post.md&quot;## 这将会忽略对 &#39;test-post.md&#39; 的渲染# 文章写作设置# 这里是比较常用的写作设置，可以根据自己的写作习惯随时进行调整new_post_name: :title.md ## 文章的文件名格式，默认为 :title.mddefault_layout: post ## 预设的布局模板，默认为 postauto_spacing: true ## 在中文和英文之间加入空格titlecase: false ## 标题是否使用首字母大写 ，默认为 falseexternal_link:  enable: false # 在新标签中打开链接  field: site # 对整个网站（site）生效或仅对文章（post）生效  exclude: &#39;&#39; # 需要排除的域名。主域名和子域名如 www 需分别配置filename_case: 0 # 将文件名转换为 1 小写 或 2 大写，默认为 0 关闭render_drafts: false # 是否显示渲染草稿，默认为 falsepost_asset_folder: true # 是否启用 Asset 文件夹，默认为 false## 这里建议开启这样在进行写文章时，可以将文章中引用到的文件放入后直接引用，可以不用考虑第三方图床等relative_link: false # 是否建立相对于根文件夹的链接，默认为 falsefuture: true # 是否显示未来文章，默认为 true# 代码块设置highlight:  enable: false # 是否使用代码高亮 ，默认为 true，我这里为false，因为我使用的主题有这个要求  line_number: true # 是否显示行号 ，默认为 true  auto_detect: false # 是否自动检测语言 ，默认为 false  tab_replace: &#39;&#39; ## tab 制表符替代设置  wrap: true  hljs: false# 首页设置index_generator:  path: &#39;&#39; ## 首页的根目录，默认为：&#39;&#39;  per_page: 10 ## 每页显示文章的数量，默认为 10  order_by: -date ## 显示文章的顺序，默认为 -date# 分类 &amp; 标签default_category: uncategorized ## 预设分类，默认为 uncategorizedcategory_map: ## 分类别名tag_map: ## 标签别名# Metadata elements## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/metameta_generator: true# 日期 / 时间格式：时间和日期的显示格式，一般没特殊要求的也不需要改date_format: YYYY-MM-DD ##日期格式，默认为 YYYY-MM-DDtime_format: HH:mm:ss ## 时间格式，默认为 HH:mm:ss## 启用以后，如果 Front Matter 中没有指定 updated， post.updated 将会使用 date 的值而不是文件的创建时间。use_date_for_updated: false# 分页per_page: 10 # 单个页面上显示的文章数量，默认为 10 ，用 0 表示禁用分页pagination_dir: page #分页目录，默认为 page# Include / Exclude file(s)## include:/exclude: options only apply to the &#39;source/&#39; folderinclude:exclude:ignore:# 主题## 当前主题名称。值为false时禁用主题theme: 3-hexo ## 博客使用的主题，默认为 landscape# 网站部署配置deploy:  type: git ## 网站部署类型，默认为：&#39;&#39;  repo: git@github.com:jiang4yu/jiang4yu.github.io.git ##网站部署地址  branch: master</code></pre><h1 id="2、主题设置"><a href="#2、主题设置" class="headerlink" title="2、主题设置"></a>2、主题设置</h1><ol><li>下载自己喜欢的主题，例如我这里选择的是<strong>3-hexo</strong>这个主题；</li><li>将它下载下来之后，复制到<strong>themes</strong>文件夹下；</li><li>在<strong>_config.yml文件</strong>中进行引用即可；</li><li>根据你选用的主题进行相应的配置，这里我的主题的配置就忽略，若有需要帮助</li></ol><h1 id="3、效果图"><a href="#3、效果图" class="headerlink" title="3、效果图"></a>3、效果图</h1><p><img src="image-20200213215856861.png" alt="最终效果图"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;0、前言&quot;&gt;&lt;a href=&quot;#0、前言&quot; class=&quot;headerlink&quot; title=&quot;0、前言&quot;&gt;&lt;/a&gt;0、前言&lt;/h1&gt;&lt;p&gt;在上一篇文章&lt;a href=&quot;http://blog.jiangyu365.com/2020/01/01/%E6%89%8B
+      
+    
+    </summary>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化博客搭建(2)--写作环境搭建</title>
+    <link href="https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-2-%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-2-%E5%86%99%E4%BD%9C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</id>
+    <published>2020-01-01T04:02:41.000Z</published>
+    <updated>2021-05-04T11:48:19.873Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0、前言"><a href="#0、前言" class="headerlink" title="0、前言"></a>0、前言</h1><p>在上一篇文章自动化博客(1)–账号创建中，我们已经完成了GitHub账号的创建并且成功创建了两个仓库用来存放相关的文件或源代码：</p><table><thead><tr><th>仓库</th><th>属性</th><th>用途</th></tr></thead><tbody><tr><td>myblog</td><td>private</td><td>存放博客源码</td></tr><tr><td>username.github.io</td><td>public</td><td>存放自动化生成的博客页面</td></tr></tbody></table><p>在本章中，我们将完成基本博客写作环境的搭建。</p><h1 id="1、Git-安装与相关配置"><a href="#1、Git-安装与相关配置" class="headerlink" title="1、Git 安装与相关配置"></a>1、Git 安装与相关配置</h1><ul><li><p>1、下载并安装git工具</p><ul><li><p>1、登录<a href="https://git-scm.com/">git官网</a>下载 git </p><p><img src="image_20200213133246.png" alt="git官网"></p><p><img src="image-20200213140723804.png" alt="具体下载页面"><br>本人认为，现在几乎每个人手里的windows系统都是64位的，所以我们直接选择<strong>64-bit Git for Windows Setup.</strong>，下载项即可，若你是32位系统，请选择<strong>32-bit Git for Windows Setup.</strong>；如何确认自己的系统位数，请自行百度。安装成功后，在桌面鼠标右键单击将会看见下图所示的状态，即为安装成功；安装过程省略，若你需帮助可联系鄙人。<br><img src="image-20200213145148.png" alt="git效果图"></p></li></ul></li><li><p>2、生成ssh密钥<br>Git安装完成之后，需要做最后一步配置，如果你没做这项配置，是没有ssh公私密钥对的，然而上传代码到远程的github等仓库，是需要验证是不是你本人亲自上传的，所以我们配置并生成一下</p></li></ul><ol><li><p>配置用户信息，<strong>win+R</strong>输入cmd，在弹出的黑窗口中输入如下内容：</p><pre><code class="bash">  git config --global user.name &quot;用户名&quot;  git config --global user.email &quot;你的邮箱&quot;</code></pre><p>  虽然用户名和邮箱均可以自我选择，但鄙人建议与github注册时使用的用户名和邮箱保持一致。</p><ol start="2"><li><p>生成 ssh 公私密钥对,<strong>win+R</strong>输入cmd，在弹出的黑窗口中输入如下内容：</p><pre><code class="bash">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code></pre><p>然后三次回车键，如下图所示：</p><p><img src="image-20200213145149.png" alt="ssh密钥示例"><br>在下面的文件路径：<strong>C:\Users\你的电脑用户名\.ssh\</strong>下，将会出现如下图所示的一组密钥<br><img src="image-20200213145150.png" alt="ssh密钥对"></p><table><thead><tr><th>文件名</th><th>文件描述</th></tr></thead><tbody><tr><td>id_rsa</td><td>ssh私钥,不可以泄露给其他人</td></tr><tr><td>id_rsa.pub</td><td>ssh公钥,后面一步将配置到github网站中</td></tr></tbody></table></li></ol></li></ol><ul><li><p>3、在github配置与验证ssh密钥</p><ol><li><p>使用文本编辑器打开<strong>id_rsa.pub</strong>文件并复制其中的内容；<br><img src="image-20200213145154.png" alt="添加ssh公钥-3"></p></li><li><p>打开<a href="https://github.com/settings/keys">github添加密钥页面</a>,添加ssh公钥，如下面的图片所示进行操作:</p><p><img src="image-20200213145151.png" alt="添加ssh公钥-1"><br><img src="image-20200213145152.png" alt="添加ssh公钥-2"><br><img src="image-20200213145153.png" alt="添加ssh公钥-3"></p></li><li><p>验证ssh密钥配置是否成功<br><strong>win+R</strong>输入cmd，在弹出的黑窗口中输入如下内容：</p><pre><code class="bash">ssh git@github.com</code></pre><p>中途会有一个确认问题，我们输入<strong>yes</strong>即可，当看见如下字样即配置成功</p><pre><code class="bash">Hi 。。。。</code></pre><p> <img src="image-20200213145155.png" alt="ssh公钥配置成功"></p></li></ol></li></ul><h1 id="2、nodejs安装与配置"><a href="#2、nodejs安装与配置" class="headerlink" title="2、nodejs安装与配置"></a>2、nodejs安装与配置</h1><ul><li><p>1、下载并安装nodejs工具</p><ul><li><p>1、登录<a href="https://nodejs.org/en/">nodejs官网</a>下载 nodejs</p><p><img src="image-20200213140538262.png" alt="nodejs官网"></p></li></ul></li><li><p>2、验证nodejs安装成功</p><p>执行命令<strong>node -v</strong> 与命令<strong>npm -v</strong>；见到如下图所示结果，即为安装成功！<br><img src="image-20200213145147.png" alt="nodejs验证"></p></li><li><p>3、安装hexo</p><p>执行命令：<strong>npm install -g hexo</strong>，如下图所示：<br><img src="image-20200213145162.png" alt="安装hexo-1"><br><img src="image-20200213145161.png" alt="安装hexo-2"></p></li></ul><h1 id="3、myblog源码生成与预览博客"><a href="#3、myblog源码生成与预览博客" class="headerlink" title="3、myblog源码生成与预览博客"></a>3、myblog源码生成与预览博客</h1><ul><li><p>1、克隆myblog仓库到本地</p><ol><li><p>打开github，找到myblog仓库，并按照下图，复制出仓库的地。<br><img src="image-20200213145160.png" alt="克隆仓库"></p></li><li><p>克隆仓库，选择一个专门存放博客的文件夹（最好不要有中文名）然后单击鼠标右键，选择<strong>Git Bash Here</strong>然后输入<strong>git clone</strong>，如下所示</p><pre><code class="bash">git clone git@github.com:yourname/myblog.git</code></pre><p><img src="image-20200213145163.png" alt="克隆仓库"></p></li></ol></li><li><p>2、生成myblog初始化源码</p><ol><li><p>另外找一个空的文件夹，执行命令：<strong>hexo init myblog</strong>，生成源码文件<br><img src="image-20200213145164.png" alt="生成博客源码"></p></li><li><p>将生成的所有文件，复制到克隆下来的仓库文件夹中；文件目录结构如下图所示</p><p><img src="image-20200213145165.png" alt="文件目录结构"></p><table><thead><tr><th>文件/文件夹</th><th>说明</th></tr></thead><tbody><tr><td>_config.yml</td><td>配置文件</td></tr><tr><td>scaffolds</td><td>一些通用的markdown模板</td></tr><tr><td>source</td><td>编写的markdown文件，_drafts草稿文件，_posts发布的文章</td></tr><tr><td>themes</td><td>博客的主题模板</td></tr><tr><td>.gitignore</td><td>Git提交忽略文件列表</td></tr><tr><td>package.json</td><td>hexo模块的描述文件</td></tr><tr><td>package-lock.json</td><td>记录当前状态下实际安装的各个npm package的具体来源和版本号。</td></tr><tr><td>node_modules</td><td>模块下载时存储的文件</td></tr></tbody></table></li></ol></li></ul><ul><li><p>3、预览博客</p><ol><li><p>进入目录中，执行命令<strong>hexo server</strong>或者<strong>hexo s</strong>，将会出现如下图所示</p><p><img src="image-20200213145166.png" alt="预览命令"></p></li><li><p>浏览器打开网址：<a href="http://localhost:4000">http://localhost:4000</a> 进行博客预览，不出意外则会如下图所示的默认博客页面：</p><p><img src="image-20200213145166.png" alt="博客默认界面"></p></li></ol></li></ul><h1 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h1><p>本篇文章中，我们搭建了基础的博客环境并初始化了默认的博客源码；到此处我们要实现的功能已经完成了<strong>40%</strong>；还剩下的内容有：</p><ul><li><ol><li>博客的基础内容的个性化配置；</li></ol></li><li><ol start="2"><li>选择一个自己喜欢的主题；</li></ol></li><li><ol start="3"><li>实现博客的自动化发布等等。</li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;0、前言&quot;&gt;&lt;a href=&quot;#0、前言&quot; class=&quot;headerlink&quot; title=&quot;0、前言&quot;&gt;&lt;/a&gt;0、前言&lt;/h1&gt;&lt;p&gt;在上一篇文章自动化博客(1)–账号创建中，我们已经完成了GitHub账号的创建并且成功创建了两个仓库用来存放相关的文件或源代
+      
+    
+    </summary>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化博客搭建(1)--账号创建</title>
+    <link href="https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-1-%E8%B4%A6%E5%8F%B7%E5%88%9B%E5%BB%BA/"/>
+    <id>https://blog.jiangyu365.com/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA-1-%E8%B4%A6%E5%8F%B7%E5%88%9B%E5%BB%BA/</id>
+    <published>2020-01-01T03:41:08.000Z</published>
+    <updated>2021-05-04T11:48:19.869Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="0、前言"><a href="#0、前言" class="headerlink" title="0、前言"></a>0、前言</h1><p>很早就打算，重新构建一下自己的博客，让博客书写过程更加顺利并减少手动发布的过程，降低自己的工作负荷；</p><p>刚好，今天又是新年的伊始，所以鄙人重新选择了：<strong>github + hexo + Travis CI</strong></p><p>顺手<strong>记录</strong>、<strong>梳理</strong>、<strong>补充</strong>搭建的每一个过程与细节和趟过的坑，收藏并分享于<strong>疆域</strong>我的个人知识库之中，期望能帮助有需要的朋友。</p><h1 id="1、注册-github-账号"><a href="#1、注册-github-账号" class="headerlink" title="1、注册 github 账号"></a>1、注册 github 账号</h1><ul><li>1、登录 github 官网：<strong><a href="https://github.com/">https://github.com/</a></strong> ，如下图所示：<br><img src="image-20200212225825593.png" alt="github官网"></li><li>2、输入信息后，点击 <strong>Sign up for GitHub</strong>进入注册页面，如下图所示：<br><img src="image-20200212225825594.png" alt="确认页面"></li><li>3、单击 <strong>Next：Select a plan</strong>，进入团队页面，如下图所示：<br><img src="image-20200212225825595.png" alt="团队选择页面"><br>由于创建团队是要花钱的并且我们仅仅是为了搭建个人博客，所以选择免费的即可。</li><li>4、单击 “Choose Free”，进入欢迎界面，如下图所示，到此Github账号创建基本完毕。<br><img src="image-20200212225825596.png" alt="欢迎界面"></li></ul><h1 id="2、创建空仓库"><a href="#2、创建空仓库" class="headerlink" title="2、创建空仓库"></a>2、创建空仓库</h1><ul><li>1、在完成第 1 部分，内容后，不出意外的话，我们将会收到一封来自github的确认邮件，如下图所示：</li></ul><p><img src="image-20200212225825598.png" alt="确认邮件"></p><ul><li>2、单击 <strong>Verify email address</strong>进行确认并创建一个名为：<strong>username.github.io</strong>的仓库，用于存放自动化生成并且可以直接访问的博客页面，如下图实例：</li></ul><p><img src="image-20200212225825599.png" alt="仓库实例"></p><ul><li>3、进入 <a href="https://github.com/new">新建仓库页面</a>，再次创建一个名为：<strong>myblog</strong>私有化仓库用于存放博客源码，如下图实例：</li></ul><p><img src="image-20200212225825510.png" alt="再次创建仓库"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;0、前言&quot;&gt;&lt;a href=&quot;#0、前言&quot; class=&quot;headerlink&quot; title=&quot;0、前言&quot;&gt;&lt;/a&gt;0、前言&lt;/h1&gt;&lt;p&gt;很早就打算，重新构建一下自己的博客，让博客书写过程更加顺利并减少手动发布的过程，降低自己的工作负荷；&lt;/p&gt;
+&lt;p&gt;刚好，今
+      
+    
+    </summary>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="博客搭建" scheme="https://blog.jiangyu365.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+</feed>
