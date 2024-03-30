@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redis系列：1.CentOS7安装Redis | 疆域·知识库</title>
+  <meta name="keywords" content=" Redis安装 ">
+  <meta name="description" content="Redis系列：1.CentOS7安装Redis | 疆域·知识库">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="页面未找到！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://blog.jiang4yu.com/404/index.html">
+<meta property="og:site_name" content="疆域·知识库">
+<meta property="og:description" content="页面未找到！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-01T03:41:08.000Z">
+<meta property="article:modified_time" content="2024-03-30T06:44:25.392Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="疆域·知识库" type="application/atom+xml">
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="false" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span></span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/jiang4yu"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="csdn"
+               href="https://blog.csdn.net/EnigmCode"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-csdn"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/jiang4yu"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:jiang4yu@126.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=915124929&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(14)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="博客搭建">
+                        
+                        博客搭建
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据库">
+                        
+                        数据库
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="消息队列">
+                        
+                        消息队列
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="CentOS7">
+                        
+                        CentOS7
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DevOps">
+                        
+                        DevOps
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="JavaEE">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        JavaEE
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="JavaEE<--->注解校验">
+                                        
+                                        注解校验
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="SkyWalking">
+                        
+                        SkyWalking
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="14">
+<input type="hidden" id="yelog_site_word_count" value="18.3k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>常用注解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CentOS7</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitLab</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OpenLDAP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Redis安装</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RocketMQ单机版</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SonarQube</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Yapi</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="全部文章 博客搭建 "
+           href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="自动化博客搭建">自动化博客搭建</span>
+            <span class="post-date" title="2020-01-01 11:41:08">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2024/03/30/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2024-03-30 14:44:25">2024/03/30</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2024/03/26/hexo-blog-development-1tmmyu/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客开发">Hexo博客开发</span>
+            <span class="post-date" title="2024-03-26 12:02:33">2024/03/26</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="001.企业级CentOS7.6操作系统的安装">001.企业级CentOS7.6操作系统的安装</span>
+            <span class="post-date" title="2024-01-08 01:11:07">2024/01/08</span>
+        </a>
+        
+        <a  class="全部文章 SkyWalking "
+           href="/2022/05/01/SkyWalking8.7.0%E6%BA%90%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SkyWalking8.7.0源码环境搭建">SkyWalking8.7.0源码环境搭建</span>
+            <span class="post-date" title="2022-05-01 11:41:08">2022/05/01</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/07/05/CentOS7-%E9%9D%9Edocker%E9%83%A8%E7%BD%B2-Yapi/"
+           data-tag="CentOS7,Yapi"
+           data-author="" >
+            <span class="post-title" title="CentOS7 非docker部署 Yapi">CentOS7 非docker部署 Yapi</span>
+            <span class="post-date" title="2020-07-05 12:08:56">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/07/05/CentOS7-%E9%9D%9Edocker%E5%AE%89%E8%A3%85-SonarQube8-3-1/"
+           data-tag="CentOS7,SonarQube"
+           data-author="" >
+            <span class="post-title" title="CentOS7 非docker安装 SonarQube8.3.1">CentOS7 非docker安装 SonarQube8.3.1</span>
+            <span class="post-date" title="2020-07-05 11:59:51">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/07/05/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AEOpenLDAP/"
+           data-tag="CentOS7,OpenLDAP"
+           data-author="" >
+            <span class="post-title" title="CentOS7下安装与配置OpenLDAP">CentOS7下安装与配置OpenLDAP</span>
+            <span class="post-date" title="2020-07-05 11:48:05">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 消息队列 "
+           href="/2020/06/19/RocketMQ%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA%E7%89%88RocketMQ/"
+           data-tag="RocketMQ单机版"
+           data-author="" >
+            <span class="post-title" title="RocketMQ系列：1.CentOS7安装单机版RocketMQ">RocketMQ系列：1.CentOS7安装单机版RocketMQ</span>
+            <span class="post-date" title="2020-06-20 00:29:36">2020/06/20</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/02/29/CentOS7-%E5%AE%89%E8%A3%85GitLab/"
+           data-tag="CentOS7,GitLab"
+           data-author="" >
+            <span class="post-title" title="CentOS7 安装GitLab">CentOS7 安装GitLab</span>
+            <span class="post-date" title="2020-02-29 18:53:50">2020/02/29</span>
+        </a>
+        
+        <a  class="全部文章 数据库 "
+           href="/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/"
+           data-tag="Redis安装"
+           data-author="" >
+            <span class="post-title" title="Redis系列：1.CentOS7安装Redis">Redis系列：1.CentOS7安装Redis</span>
+            <span class="post-date" title="2020-02-26 18:10:15">2020/02/26</span>
+        </a>
+        
+        <a  class="全部文章 数据库 "
+           href="/2020/02/26/MySQL%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"
+           data-tag="MySQL"
+           data-author="" >
+            <span class="post-title" title="MySQL系列：1.CentOS7安装MySQL数据库">MySQL系列：1.CentOS7安装MySQL数据库</span>
+            <span class="post-date" title="2020-02-26 08:10:15">2020/02/26</span>
+        </a>
+        
+        <a  class="全部文章 JavaEE 注解校验 "
+           href="/2020/02/22/Hibernate-Validator/"
+           data-tag="常用注解"
+           data-author="" >
+            <span class="post-title" title="Hibernate Validator">Hibernate Validator</span>
+            <span class="post-date" title="2020-02-22 22:14:45">2020/02/22</span>
+        </a>
+        
+        <a  class="全部文章 CentOS7 "
+           href="/2020/02/22/CentOS7%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96/"
+           data-tag="CentOS7"
+           data-author="" >
+            <span class="post-title" title="CentOS7安装与管理系统初始化">CentOS7安装与管理系统初始化</span>
+            <span class="post-date" title="2020-02-22 22:06:39">2020/02/22</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Redis系列：1-CentOS7安装Redis" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Redis系列：1.CentOS7安装Redis</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="数据库">数据库</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">Redis安装</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-03-30 14:44:25'>2020-02-26 18:10</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.8k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E5%B9%B6%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="toc-text">1、下载源码并编译安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Redis%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3"><span class="toc-text">2、Redis配置详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE"><span class="toc-text">3、自定义配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%90%AF%E5%8A%A8Redis"><span class="toc-text">4、启动Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%90%AF%E5%8A%A8"><span class="toc-text">服务端启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%9C%8D%E7%AB%AF%E5%90%AF%E5%8A%A8"><span class="toc-text">客服端启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%ADRedis"><span class="toc-text">关闭Redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%90%AF%E5%90%AF%E5%8A%A8"><span class="toc-text">5、设置开启启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1"><span class="toc-text">新建服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%B7%E6%96%B0%E9%85%8D%E7%BD%AE"><span class="toc-text">刷新配置</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、下载源码并编译安装"><a href="#1、下载源码并编译安装" class="headerlink" title="1、下载源码并编译安装"></a>1、下载源码并编译安装</h2><pre><code class="bash">cd /opt
+wget http://download.redis.io/releases/redis-5.0.7.tar.gz
+# 解压
+tar xzf redis-5.0.7.tar.gz
+# 编译
+cd redis-5.0.7
+make
+# 安装到/usr/local/redis
+make PREFIX=/usr/local/redis install
+# 复制解压目录下的配置文件到安装目录/usr/local/redis下
+cp /opt/redis-5.0.7/redis.conf /usr/local/redis/bin/
+# 启动服务端
+/usr/local/redis/bin/redis-server
+</code></pre>
+<h2 id="2、Redis配置详解"><a href="#2、Redis配置详解" class="headerlink" title="2、Redis配置详解"></a>2、Redis配置详解</h2><pre><code class="bash"># 修改配置文件
+vim /usr/local/redis/bin/redis.conf
+# 前10个
+# 1.默认不是以守护进程的方式运行，将daemonize no改为daemonize yes以守护进程的方式运行：
+    daemonize yes
+# 2.当redis以守护进程方式运行时，会默认将pid写在/var/run/redis.pid文件，可以通过修改pidfile的选项，指定文件位置
+    pidfile /var/run/redis.pid
+# 3.Redis的监听端口默认为：6379，可以通过修改port选项进行修改
+    port 6379
+# 4.绑定允许访问主机的地址，默认为：127.0.0.1可以通过修改bind选项进行修改
+    bind 127.0.0.1
+# 5.设置客户端限制后，多长时间进行断开连接，默认为300，可以通过修改timeout进行设定，如果设置为0则表示关闭该功能
+    timeout 300
+# 6.指定日志记录级别，默认为verbose，共四个级别：debug、verbose、notice、warning
+    loglevel verbose
+# 7.日志记录方式，默认为标准输出，如果Redis使用守护进程方式运行，这里又配置为标志输出，那么日志将发送给 /dev/null
+    logfile stdout
+# 8.设置数据库的数量，默认数据库数量为16个，可以通过修改databases 进行设定
+    databases 16
+# 9.指定在多长时间内，又多少次更新操作后，就将数据同步到数据文件，可以通过修改 save进行设置
+    save &lt;seconds&gt; &lt;changes&gt;
+    默认配置文件中提供了三个条件:
+    save 900 1
+    save 300 10
+    save 60 10000
+    分别表示:
+    900秒 1个更改
+    300秒 10个更改
+    60秒  10000个更改
+# 10.指定存储到本地数据库的数据是否进行压缩，默认yes，Redis采用的时LZF压缩算法，如果为了节省CPU时间可以关闭，但是会导致数据文件巨大，占用磁盘空间
+rdbcompression yes
+# 中间10个
+# 11.指定本地数据库文件名，默认为dump.rdb
+    dbfilename dump.rdb
+# 12.指定本地数据库存放的目录
+    dir ./
+# 13.设置当机器为从机slav服务时，设置主机master的服务IP以及端口，在启动Redis时，会自动从master同步数据
+    slaveof &lt;masterip&gt; &lt;masterport&gt;
+# 14.当master服务设置了密码保护时，slav服务连接master需要密码
+    masterauth &lt;master-password&gt;
+# 15.设置Redis连接密码，如果配置了连接密码，客服端在连接Redis时需要通过 AUTH &lt;password&gt;命令提供密码，默认时关闭的
+    requirepass foobared
+# 16.设置同一时间客户端连接的最大数，默认是无限制的，maxclients 0表示无限制，当超过限制后，就会报 max number of clients reached 错误
+    maxclients 128
+# 17.指定Redis最大内存限制，Redis启动时会把数据加载到内存中，当达到最大内存后Redis会先尝试清除已到期或者即将到期的key，如果这样操作之后仍然达到最大值，那么不能再进行写操作，只能进行读操作，默认为服务器最终内存
+    maxmemory &lt;bytes&gt;
+# 18.指定是否再每次更新操作后进行日志记录，Redis默认情况下是异步将数据写入磁盘，如果不开启可能在断电后造成数据丢失，因为redis本身同步数据文件是按照配置的save条件来同步的，所有的数据可能在内存中，默认值为 no
+    appendonly no
+# 19.指定更新的文件名，默认为appendonly.aof
+    appendfilename appendonly.aof
+# 20.指定更新日志条件，共有三个可选值
+    no # 表示等操作系统进行数据缓存到同步
+    always # 表示每次更新操作后手动调节fsync(),将数据写到磁盘，慢但是安全，
+    everysec # 表示每秒同步一次，折中方案，默认值
+# 结尾10个
+# 21.是否启用虚拟内存机制，默认值为no，vm机制将数据分页存放，由Redis将访问量较少的页，放到swap磁盘，访问多的页面有磁盘放到内存
+    vm-enabled no
+# 22.虚拟内存文件的路径，默认值为/tmp/redis.swap,不可以多个Redis实例共享
+    vm-swap-file /tmp/redis.swap
+# 23.将所有大于最大虚拟内存的数据存入虚拟内存，不论vm-max-memoryz设置多少，所有，索引数据都是内存存储的，也就是说，当vm-max-memory设置为0时，就是将所有的value存放在磁盘之中，默认值为0
+    vm-max-memory 0
+# 24.Redis swap文件分成了很多page，一个对象可以保存在多个page上，但是一个page上不能被多个对象共享，vm-page-size时要根据存储的数据大小来设定，官方建议，如果是存放很多小对象，page最好设置为32bytes或者64bytes；如果存储对象很大，就用更大的page，若是不确定就用默认值
+    vm-page-size 32
+# 25.设置swap文件中的page数量，由于页表是存放在内存中的，在磁盘上每8个page就会消耗1个byte的内存
+    vm-pages 134217728
+# 26.设置访问swap文件的线程数，最好不要超过机器的cpu核心数，如果设置为0，那么所有的swap文件都是串行的，可能会导致较长时间的延迟，默认值为4
+    vm-max-threads 4
+# 27.设置在向客服端应答时，是否把较小的包合并为一个包进行发送，默认开启
+    glueoutputbuf yes
+# 28.指定在超过一定数量或者最大的元素超过临界值时，采用一种特殊的哈希算法
+    hash-max-zipmap-entries 64
+    hash-max-zimap-value 512
+# 29.指定是否激活重置hash，默认开启
+    activerehashing yes
+# 指定包含其他的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又又自己的特定配置文件
+    include /path/to/local.conf
+</code></pre>
+<h2 id="3、自定义配置"><a href="#3、自定义配置" class="headerlink" title="3、自定义配置"></a>3、自定义配置</h2><p>进入redis.conf所在的目录进行修改配置</p>
+<pre><code class="bash">daemonize yes
+bind 127.0.0.1 #注释掉，允许本机外的机器访问
+requirepass 设置密码
+</code></pre>
+<h2 id="4、启动Redis"><a href="#4、启动Redis" class="headerlink" title="4、启动Redis"></a>4、启动Redis</h2><h3 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h3><pre><code class="bash">/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf
+</code></pre>
+<h3 id="客服端启动"><a href="#客服端启动" class="headerlink" title="客服端启动"></a>客服端启动</h3><pre><code class="bash">/usr/local/redis/bin/redis-cli -h ip -p port -a password
+</code></pre>
+<h3 id="关闭Redis"><a href="#关闭Redis" class="headerlink" title="关闭Redis"></a>关闭Redis</h3><p>第一种，非正常关闭</p>
+<pre><code class="bash">ps -ef | grep -i redis
+kill -9 PID
+</code></pre>
+<p>第二种，正常关闭，通过客户端进行shutdown</p>
+<pre><code class="bash">/usr/local/redis/bin/redis-cli  shutdown -a password
+</code></pre>
+<h2 id="5、设置开启启动"><a href="#5、设置开启启动" class="headerlink" title="5、设置开启启动"></a>5、设置开启启动</h2><h3 id="新建服务"><a href="#新建服务" class="headerlink" title="新建服务"></a>新建服务</h3><pre><code class="bash">chmod 644 /usr/local/redis/bin/redis.conf
+vim /usr/lib/systemd/system/redis.service
+# 内容如下：
+[Unit]
+Description=Redis
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/redis_6379.pid
+ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf --daemonize yes
+ExecStop=/usr/local/bin/redis-cli -p 6379 shutdwn -a jiangyu5201314
+Restart =always
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<h3 id="刷新配置"><a href="#刷新配置" class="headerlink" title="刷新配置"></a>刷新配置</h3><pre><code class="bash">systemctl daemon-reload
+systemctl enable redis.service
+systemctl start redis.service
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jiang4yu@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Redis系列：1.CentOS7安装Redis</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">1.8k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title=""></a></p>
+    <p><span class="copy-title">发布时间:</span>2020-02-26, 18:10:15</p>
+    <p><span class="copy-title">最后更新:</span>2024-03-30, 14:44:25</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/" title="Redis系列：1.CentOS7安装Redis">https://blog.jiang4yu.com/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2022 Jiang4Yu
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

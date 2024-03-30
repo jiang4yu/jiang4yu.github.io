@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>001.企业级CentOS7.6操作系统的安装 | 疆域·知识库</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="001.企业级CentOS7.6操作系统的安装 | 疆域·知识库">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="页面未找到！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://blog.jiang4yu.com/404/index.html">
+<meta property="og:site_name" content="疆域·知识库">
+<meta property="og:description" content="页面未找到！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-01T03:41:08.000Z">
+<meta property="article:modified_time" content="2024-03-30T06:44:25.392Z">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="疆域·知识库" type="application/atom+xml">
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="false" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span></span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/jiang4yu"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="csdn"
+               href="https://blog.csdn.net/EnigmCode"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-csdn"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/jiang4yu"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:jiang4yu@126.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=915124929&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(14)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="博客搭建">
+                        
+                        博客搭建
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据库">
+                        
+                        数据库
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="消息队列">
+                        
+                        消息队列
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="CentOS7">
+                        
+                        CentOS7
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DevOps">
+                        
+                        DevOps
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="JavaEE">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        JavaEE
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="JavaEE<--->注解校验">
+                                        
+                                        注解校验
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="SkyWalking">
+                        
+                        SkyWalking
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="14">
+<input type="hidden" id="yelog_site_word_count" value="18.3k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>常用注解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CentOS7</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitLab</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OpenLDAP</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Redis安装</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RocketMQ单机版</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SonarQube</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Yapi</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class="全部文章 博客搭建 "
+           href="/2020/01/01/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"
+           data-tag="博客搭建"
+           data-author="" >
+            <span class="post-title" title="自动化博客搭建">自动化博客搭建</span>
+            <span class="post-date" title="2020-01-01 11:41:08">2020/01/01</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2024/03/30/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2024-03-30 14:44:25">2024/03/30</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2024/03/26/hexo-blog-development-1tmmyu/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客开发">Hexo博客开发</span>
+            <span class="post-date" title="2024-03-26 12:02:33">2024/03/26</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="001.企业级CentOS7.6操作系统的安装">001.企业级CentOS7.6操作系统的安装</span>
+            <span class="post-date" title="2024-01-08 01:11:07">2024/01/08</span>
+        </a>
+        
+        <a  class="全部文章 SkyWalking "
+           href="/2022/05/01/SkyWalking8.7.0%E6%BA%90%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SkyWalking8.7.0源码环境搭建">SkyWalking8.7.0源码环境搭建</span>
+            <span class="post-date" title="2022-05-01 11:41:08">2022/05/01</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/07/05/CentOS7-%E9%9D%9Edocker%E9%83%A8%E7%BD%B2-Yapi/"
+           data-tag="CentOS7,Yapi"
+           data-author="" >
+            <span class="post-title" title="CentOS7 非docker部署 Yapi">CentOS7 非docker部署 Yapi</span>
+            <span class="post-date" title="2020-07-05 12:08:56">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/07/05/CentOS7-%E9%9D%9Edocker%E5%AE%89%E8%A3%85-SonarQube8-3-1/"
+           data-tag="CentOS7,SonarQube"
+           data-author="" >
+            <span class="post-title" title="CentOS7 非docker安装 SonarQube8.3.1">CentOS7 非docker安装 SonarQube8.3.1</span>
+            <span class="post-date" title="2020-07-05 11:59:51">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/07/05/CentOS7%E4%B8%8B%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AEOpenLDAP/"
+           data-tag="CentOS7,OpenLDAP"
+           data-author="" >
+            <span class="post-title" title="CentOS7下安装与配置OpenLDAP">CentOS7下安装与配置OpenLDAP</span>
+            <span class="post-date" title="2020-07-05 11:48:05">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 消息队列 "
+           href="/2020/06/19/RocketMQ%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA%E7%89%88RocketMQ/"
+           data-tag="RocketMQ单机版"
+           data-author="" >
+            <span class="post-title" title="RocketMQ系列：1.CentOS7安装单机版RocketMQ">RocketMQ系列：1.CentOS7安装单机版RocketMQ</span>
+            <span class="post-date" title="2020-06-20 00:29:36">2020/06/20</span>
+        </a>
+        
+        <a  class="全部文章 DevOps "
+           href="/2020/02/29/CentOS7-%E5%AE%89%E8%A3%85GitLab/"
+           data-tag="CentOS7,GitLab"
+           data-author="" >
+            <span class="post-title" title="CentOS7 安装GitLab">CentOS7 安装GitLab</span>
+            <span class="post-date" title="2020-02-29 18:53:50">2020/02/29</span>
+        </a>
+        
+        <a  class="全部文章 数据库 "
+           href="/2020/02/26/Redis%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85Redis/"
+           data-tag="Redis安装"
+           data-author="" >
+            <span class="post-title" title="Redis系列：1.CentOS7安装Redis">Redis系列：1.CentOS7安装Redis</span>
+            <span class="post-date" title="2020-02-26 18:10:15">2020/02/26</span>
+        </a>
+        
+        <a  class="全部文章 数据库 "
+           href="/2020/02/26/MySQL%E7%B3%BB%E5%88%97%EF%BC%9A1-CentOS7%E5%AE%89%E8%A3%85MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"
+           data-tag="MySQL"
+           data-author="" >
+            <span class="post-title" title="MySQL系列：1.CentOS7安装MySQL数据库">MySQL系列：1.CentOS7安装MySQL数据库</span>
+            <span class="post-date" title="2020-02-26 08:10:15">2020/02/26</span>
+        </a>
+        
+        <a  class="全部文章 JavaEE 注解校验 "
+           href="/2020/02/22/Hibernate-Validator/"
+           data-tag="常用注解"
+           data-author="" >
+            <span class="post-title" title="Hibernate Validator">Hibernate Validator</span>
+            <span class="post-date" title="2020-02-22 22:14:45">2020/02/22</span>
+        </a>
+        
+        <a  class="全部文章 CentOS7 "
+           href="/2020/02/22/CentOS7%E5%AE%89%E8%A3%85%E4%B8%8E%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96/"
+           data-tag="CentOS7"
+           data-author="" >
+            <span class="post-title" title="CentOS7安装与管理系统初始化">CentOS7安装与管理系统初始化</span>
+            <span class="post-date" title="2020-02-22 22:06:39">2020/02/22</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-001-enterprise-centos-76-operating-system-installation-z2mkm7v" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">001.企业级CentOS7.6操作系统的安装</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-03-30 14:43:34'>2024-01-08 01:11</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:5.7k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F"><span class="toc-text">1. 准备系统镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">2. 创建虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-text">3. 虚拟主机网络配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-text">4. 系统安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E8%BF%9B%E5%85%A5%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%95%8C%E9%9D%A2"><span class="toc-text">4.1 进入系统安装引导界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E4%BF%AE%E6%94%B9%E7%BD%91%E5%8D%A1%E5%90%8D%E4%B8%BAeth0%E7%9A%84%E5%BD%A2%E5%BC%8F-%E4%B8%8ECentOS7%E4%BB%A5%E5%89%8D%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4"><span class="toc-text">4.2 修改网卡名为eth0的形式(与CentOS7以前保持一致)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80%EF%BC%8C%E5%BB%BA%E8%AE%AE%E9%80%89%E6%8B%A9%E8%8B%B1%E6%96%87"><span class="toc-text">4.3 选择语言，建议选择英文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%AE%89%E8%A3%85%E6%91%98%E8%A6%81%E9%A1%B5%E9%9D%A2-INSTALLATION-SUMMARY"><span class="toc-text">4.4 安装摘要页面(INSTALLATION SUMMARY)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA%E5%92%8C%E6%97%B6%E9%97%B4-DATE-amp-TIME"><span class="toc-text">4.5 配置系统时区和时间(DATE&amp;TIME)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E9%80%89%E6%8B%A9%E9%A2%9D%E5%A4%96%E7%9A%84%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81-LANGUAGE-SUPPORT"><span class="toc-text">4.6 选择额外的语言支持(LANGUAGE SUPPORT)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E7%B3%BB%E7%BB%9F%E8%BD%AF%E4%BB%B6%E5%8C%85%E9%80%89%E6%8B%A9-SOFTWARE-SELECTION"><span class="toc-text">4.7 系统软件包选择(SOFTWARE SELECTION)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%90%8D-NETWORK-amp-HOSTNAME"><span class="toc-text">4.8 配置网络和主机名(NETWORK&amp;HOSTNAME)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-9-%E9%80%89%E6%8B%A9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%EF%BC%8C%E9%85%8D%E7%BD%AE%E5%88%86%E5%8C%BA-INSTALLATION-DESTINATION"><span class="toc-text">4.9 选择磁盘分区，配置分区(INSTALLATION DESTINATION)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-10-%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3"><span class="toc-text">4.10 系统安全相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-11-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-text">4.11 系统安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E6%93%8D%E4%BD%9C%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-text">5. 系统安装后的操作与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E7%99%BB%E9%99%86%E6%9F%A5%E7%9C%8B%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-text">5.1 登陆查看基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E6%A3%80%E6%9F%A5%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-text">5.2 检查网络配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E7%B3%BB%E7%BB%9F%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91%E7%9A%84%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E6%96%B9%E6%B3%95"><span class="toc-text">5.3 系统无法联网的故障排除方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E4%BD%BF%E7%94%A8nmtui%E5%91%BD%E4%BB%A4%E8%AE%BE%E7%BD%AE%E7%BD%91%E5%8D%A1"><span class="toc-text">5.4 使用nmtui命令设置网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BF%9D%E5%AD%98%E5%BF%AB%E7%85%A7"><span class="toc-text">5.5 虚拟机保存快照</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%E6%9B%B4%E5%A4%9A%E7%B2%BE%E5%BD%A9%E5%86%85%E5%AE%B9"><span class="toc-text">推荐阅读更多精彩内容</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-准备系统镜像"><a href="#1-准备系统镜像" class="headerlink" title="1. 准备系统镜像"></a>1. 准备系统镜像</h2><ul>
+<li>官网：<a href="https://wiki.centos.org/Download">https://wiki.centos.org/Download</a><br>官网列出了很多国内镜像站地址</li>
+<li>阿里云：<a href="https://mirrors.aliyun.com/centos-vault/">https://mirrors.aliyun.com/centos-vault/</a><br>iso文件在每个版本目录的isos目录下，例如CentOS-7.6.1810的镜像在<a href="https://mirrors.aliyun.com/centos-vault/7.6.1810/isos">https://mirrors.aliyun.com/centos-vault/7.6.1810/isos</a>目录下</li>
+</ul>
+<h2 id="2-创建虚拟机"><a href="#2-创建虚拟机" class="headerlink" title="2. 创建虚拟机"></a>2. 创建虚拟机</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-be9c08adf4640b06-20240108011108-fshw1kg.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-1175e2bfe7a8701b-20240108011108-kfvgz8b.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-732409d3371f2f8c-20240108011108-scxf0sg.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-db3037758ede7feb-20240108011108-6lmpvct.png">​</p>
+<p>　　在选择好系统镜像之后，如果选择<code>安装程序光盘映像文件</code>​，会自动安装系统，虽然方便，但是会安装太多的服务和程序，并且会自动分区，所有我们选择<code>稍后安装系统</code>​来手动的安装系统。</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-a331f81adac56118-20240108011108-nnb5ig7.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-fd9faacb2a683075-20240108011108-2ho414v.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-7ffc1941d036a430-20240108011108-fc53h54.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-e255eef242b73791-20240108011108-7g67d20.png">​</p>
+<table>
+<thead>
+<tr>
+<th>系统版本</th>
+<th>安装所需内存</th>
+<th>启动所需内存</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CentOS-5</td>
+<td>256M</td>
+<td>100M</td>
+</tr>
+<tr>
+<td>CentOS-6</td>
+<td>最少512M，建议1GB+</td>
+<td>最少512M，建议1GB+</td>
+</tr>
+<tr>
+<td>CentOS-7</td>
+<td>最少512M，建议1GB+</td>
+<td>最少512M，建议1GB+</td>
+</tr>
+</tbody></table>
+<p>　　如果安装时内存小于最低推荐内存，可能会报错，另外建议安装的时候时候设置的大一些，例如2GB，后面根据本地资源使用情况再做调整</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-a49fa05f243a2382-20240108011108-dphe43s.png">​</p>
+<p>　　以下对网络类型进行简单介绍：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-1977e244f9048582-20240108011108-wt8huhi.png">​</p>
+<ul>
+<li>NAT(Network Address Translation)：网络地址转换，虚拟机通过宿主机进行上网和交换数据。在NAT模式下，虚拟机的网卡连接到宿主机的VMnet8上，宿主机中的VMware NAT Service服务充当了路由器的角色，负责将虚拟机发送到VMnet8的包进行地址转换之后再发送到实际的网络上，同理，将实际网络上返回的包进行地址转换后通过VMnet8发送给虚拟机，VMware DHCP Service负责为虚拟机分配分配IP地址。NAT网络适用于宿主机直连网线或者办公室的局域网环境，优点是不会于其他物理机的IP发生冲突，更换网络环境后，虚拟机的IP不会受到影响，推荐使用NAT模式。</li>
+<li>Bridged(桥接模式)：虚拟机可以分配于宿主机相同网段的独立IP，所有网络功能几乎与真实机器完全一样，虚拟机直接连接到真实网络中，适用场景：局域网环境，优点：远程机器可以通过路由器访问到虚拟机，缺点：与宿主机通信都会走真实的路由器，且可能会造成IP冲突，更换网络环境后，所有虚拟机的IP都会受影响。</li>
+<li>Host-only(仅主机模式)：虚拟机不能访问外网，只能与宿主机通信</li>
+</ul>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-c726400dda3f8465-20240108011108-hng56hm.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-e4741b7a74043d59-20240108011108-blivk0e.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-142ee182861d718d-20240108011108-m0p1dgo.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-eb9f889c8bde85bd-20240108011108-ew93nyd.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-c89135549e2beab6-20240108011108-3ec34o9.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-ae7695423e3e16a7-20240108011108-74c8nt0.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-73727bc65da1400a-20240108011108-xmvk3m7.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-3dd08fc10d34d1a1-20240108011108-10p782o.png">​</p>
+<h2 id="3-虚拟主机网络配置"><a href="#3-虚拟主机网络配置" class="headerlink" title="3. 虚拟主机网络配置"></a>3. 虚拟主机网络配置</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-10eff8d6a775e36d-20240108011108-ktuayww.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-b7dac228d065b432-20240108011108-kys9w2o.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-fee57323f47e2bb0-20240108011108-cidetdl.png">​</p>
+<h2 id="4-系统安装"><a href="#4-系统安装" class="headerlink" title="4. 系统安装"></a>4. 系统安装</h2><h2 id="4-1-进入系统安装引导界面"><a href="#4-1-进入系统安装引导界面" class="headerlink" title="4.1 进入系统安装引导界面"></a>4.1 进入系统安装引导界面</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-e9e6bc6928b1f745-20240108011108-aqo0w1w.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-1476dd880fbb4e47-20240108011108-69zu4w2.png">​</p>
+<p>　　提示：虚拟机界面与Windows界面鼠标切换：Ctrl + Alt</p>
+<h2 id="4-2-修改网卡名为eth0的形式-与CentOS7以前保持一致"><a href="#4-2-修改网卡名为eth0的形式-与CentOS7以前保持一致" class="headerlink" title="4.2 修改网卡名为eth0的形式(与CentOS7以前保持一致)"></a>4.2 修改网卡名为eth0的形式(与CentOS7以前保持一致)</h2><ul>
+<li>为了统一企业中的多版本系统共存的环境，这里将网卡名称设置为”eth*“的形式，不使用CentOS7默认的特殊网卡命名规则，相关说明如下：<br>CentOS7以前的ethX数字编号的网卡命名方式往往不一定能准确对应网卡接口的物理顺序，CentOS7的网卡默认命名方式可以解决这一问题，但同时也为Linux系统管理员带来了额外的困扰，即无法兼容CentOS6的环境以及使用习惯，所以一般都还是会改回早期的eth0、eth1这样的网卡命名方式，具体修改内核参数组合如下，默认内核参数(biosdevname&#x3D;0,net.ifnames&#x3D;1)，网卡名如”enp5s2”，如果biosdevname&#x3D;1，net.ifnames&#x3D;0，网卡名如”em1”，如果biosdevname&#x3D;0，net.ifnames&#x3D;0，网卡名如”eth0”(传统的方式)</li>
+<li>所以在初始安装的时候，需要增加内核参数（也可以在系统安装之后再配置，参考<a href="https://blog.51cto.com/oldboy/1722101">https://blog.51cto.com/oldboy/1722101</a>）， 先选中<code>Install CentOS 7</code>​，按Tab键进入内核参数配置界面，并手动输入以下参数，输入完成之后，按Enter即可进入下一步，随后也会看到按Enter的提示，等待即可</li>
+</ul>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-962691991765a923-20240108011108-tl3s8u2.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-ce00c42c387fd768-20240108011108-w3lntwc.png">​</p>
+<p>　　在系统安装好之后也可以修改网卡名称，操作如下：</p>
+<pre><code class="shell"># 1. 修改/etc/sysconfig/network-scripts/ifcfg-ens33文件
+NAME=eth0
+DEVICE=eth0
+# 2. 网卡设备文件重命名
+mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0
+# 3. 修改/etc/default/grub文件，添加如下内容
+GRUB_CMDLINE_LINUX=&quot;biosdevname=0 net.ifnames=0 rhgb quiet&quot;
+# 4.系统重新加载grub配置文件
+grub2-mkconfig -o /boot/grub2/grub.cfg
+</code></pre>
+<h2 id="4-3-选择语言，建议选择英文"><a href="#4-3-选择语言，建议选择英文" class="headerlink" title="4.3 选择语言，建议选择英文"></a>4.3 选择语言，建议选择英文</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-8621ef876c1304c5-20240108011108-ix6zjel.png">​</p>
+<p>　　如果由于分辨率问题导致Continue按钮看不到，就需要进入全屏模式：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-3d357a14e17104d8-20240108011108-zu918dl.png">​</p>
+<h2 id="4-4-安装摘要页面-INSTALLATION-SUMMARY"><a href="#4-4-安装摘要页面-INSTALLATION-SUMMARY" class="headerlink" title="4.4 安装摘要页面(INSTALLATION SUMMARY)"></a>4.4 安装摘要页面(INSTALLATION SUMMARY)</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-6d528129e749c63b-20240108011109-da9j6md.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-a3a115e9ab85051a-20240108011109-lnrf7do.png">​</p>
+<h2 id="4-5-配置系统时区和时间-DATE-amp-TIME"><a href="#4-5-配置系统时区和时间-DATE-amp-TIME" class="headerlink" title="4.5 配置系统时区和时间(DATE&amp;TIME)"></a>4.5 配置系统时区和时间(DATE&amp;TIME)</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-a87e04c6a0f0ad4e-20240108011109-5dc2w5e.png">​</p>
+<h2 id="4-6-选择额外的语言支持-LANGUAGE-SUPPORT"><a href="#4-6-选择额外的语言支持-LANGUAGE-SUPPORT" class="headerlink" title="4.6 选择额外的语言支持(LANGUAGE SUPPORT)"></a>4.6 选择额外的语言支持(LANGUAGE SUPPORT)</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-5242fed1ffb8d2d2-20240108011109-nr2xhfo.png">​</p>
+<h2 id="4-7-系统软件包选择-SOFTWARE-SELECTION"><a href="#4-7-系统软件包选择-SOFTWARE-SELECTION" class="headerlink" title="4.7 系统软件包选择(SOFTWARE SELECTION)"></a>4.7 系统软件包选择(SOFTWARE SELECTION)</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-353ef74b4038bcc2-20240108011109-45susyy.png">​</p>
+<p>　　根据经验，选择安装包时应该采用最小化原则，即不需要的或不确定是否需要的东西就不安装，即”Minimal Install”，这样可以最大程度上确保系统安全。</p>
+<p>　　如果安装过程中落下了部分组件，或者是其他伙伴安装时未选择，那么在安装完成之后可以通过如下方式补上未安装的组件：</p>
+<p>　　补充安装”Compatibility Libraries”、”Base”和”Development tools”这3个组件的命令为：</p>
+<pre><code class="shell">yum group install &quot;Compatibility libraries&quot; &quot;Base&quot; &quot;Development tools&quot;
+</code></pre>
+<p>　　补充安装”Debugging Tools”、”Dial-up Networking Support”这两个组件的命令为：</p>
+<pre><code class="shell">yum group install &quot;debugging Tools&quot; &quot;Dial-up Networking Support&quot;
+</code></pre>
+<p>　　可以通过<code>yum groupinfo [package-name]</code>​ 来查看安装的包。</p>
+<h2 id="4-8-配置网络和主机名-NETWORK-amp-HOSTNAME"><a href="#4-8-配置网络和主机名-NETWORK-amp-HOSTNAME" class="headerlink" title="4.8 配置网络和主机名(NETWORK&amp;HOSTNAME)"></a>4.8 配置网络和主机名(NETWORK&amp;HOSTNAME)</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-25455d52b1df5764-20240108011109-oebcbf7.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-fec3b95a3771bde0-20240108011109-exzicve.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-490cf37c6f400018-20240108011109-mpzqr8f.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-0ebb7244f2c99b84-20240108011109-j4desq1.png">​</p>
+<h2 id="4-9-选择磁盘分区，配置分区-INSTALLATION-DESTINATION"><a href="#4-9-选择磁盘分区，配置分区-INSTALLATION-DESTINATION" class="headerlink" title="4.9 选择磁盘分区，配置分区(INSTALLATION DESTINATION)"></a>4.9 选择磁盘分区，配置分区(INSTALLATION DESTINATION)</h2><p>　　Linux磁盘分区知识简介</p>
+<ul>
+<li>磁盘在使用之前一般要先分区（相当于买的房要分几居一样）</li>
+<li>磁盘分区有主分区、扩展分区和逻辑分区之分。一块磁盘最多可以有4个主分区，其中，一个主分区的位置可以用一个扩展分区来替换，在这个扩展分区内可以划分多个逻辑分区</li>
+<li>如果规划的分区数量超过4个，则分区组合可为3primary(p)+1extend(e)或者2p+1e或1p+1e</li>
+<li>一块磁盘最多只能有一个扩展分区，扩展分区不能直接使用，必须在扩展分区上划分逻辑分区，然后格式化(创建文件系统)，之后才能存取数据或者装系统</li>
+</ul>
+<p>　　磁盘分区命名以及编号方式</p>
+<ol>
+<li><p>以设备名命名<br> 在Linux系统中，磁盘设备对应于系统中的特殊文件，这些特殊的文件放在”&#x2F;dev”目录中，不同的设备对应的设备名称具体如下：</p>
+<ul>
+<li>系统的第一块IDE接口的硬盘名称为&#x2F;dev&#x2F;hda</li>
+<li>系统的第二块IDE接口的硬盘名称为&#x2F;dev&#x2F;hdb</li>
+<li>系统的第一块SCSI接口的硬盘名称为&#x2F;dev&#x2F;sda</li>
+<li>系统的第二块SCSI接口的硬盘名称为&#x2F;dev&#x2F;sdb</li>
+</ul>
+</li>
+<li><p>使用数字编号<br> 为了表示不同的分区，通常会使用数字进行编号，比如：</p>
+<ul>
+<li>系统的第一块IDE接口的硬盘的第一个分区名称为&#x2F;dev&#x2F;hda1</li>
+<li>系统的第一块IDE接口的硬盘的第五个分区名称为&#x2F;dev&#x2F;hda5</li>
+<li>系统的第二块SCSI接口的硬盘的第一个分区名称&#x2F;dev&#x2F;sdb1</li>
+<li>系统的第二块SCSI接口的硬盘的第五个分区名称&#x2F;dev&#x2F;sdb5</li>
+</ul>
+<p> 对分区进行编号时，数字1-4只能留给主分区或者扩展分区，在安装时由系统自行完成创建</p>
+</li>
+</ol>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-a4bb271d1d931a59-20240108011109-knnt8wz.png">​</p>
+<p>　　点击”Done”进入分区设置页面：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-ee9775d8c9a813d3-20240108011109-apw136p.png">​</p>
+<p>　　说明：</p>
+<p>　　LVM的意思是逻辑卷管理，它可以对设置好的分区大小进行动态调整，前提是所有的分区格式都需要事先做成LVM分区格式，即分区标号为8e，企业环境的分区一般都是按需求实现规划好的，极少有后续调整的需求，且LVM的性能和标准分区及硬件RAID卡相比还是有一定的差距的，因此，如果没有特殊需求，则不会选择LVM功能分区，而是使用更优秀的标准分区模式”Standard Partition”。</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-f6892d9157496aa7-20240108011109-51a41kq.png">​</p>
+<p>　　Linux系统对分区的基本要求</p>
+<ul>
+<li>最好要有一个根(&#x2F;)分区，用来存放系统文件及程序，大小在5GB以上</li>
+<li>要有一个交换(swap)分区，它的作用相当于Windows的虚拟内存，swap分区的大小一般为物理内存容量的1.5倍(内存&lt;8GB)，当系统物理内存大于8GB时，swap分区配置8-16GB即可，太大无用，浪费磁盘空间。swap分区不是必须的，但是大多数情况下还是设置一下比较好，个别企业的数据库应用场景不分swap。</li>
+<li>&#x2F;boot分区，这是Linux系统的引导分区，用于存放系统引导文件，如Linux内核等。对CentOS7而言，这个分区要比之前的版本大一点，可设置为1024MB，这个分区也不是必须的</li>
+</ul>
+<p>　　企业生产场景中Linux的分区方案</p>
+<ol>
+<li><p>方案一：针对网站集群架构中的某个节点服务器分区，该服务器上的数据包含多份(其他节点也有)且数据不太重要，建议的分区方式如下：</p>
+<ul>
+<li>&#x2F;boot：512~1024MB</li>
+<li>&#x2F;swap：当物理内存小于8GB时，设置为物理内存的1.5倍，当物理内存大于等于8GB时，分配8-16GB，建议给8GB就可以了</li>
+<li>&#x2F;：硬盘剩余空间大小（&#x2F;usr、&#x2F;home、&#x2F;var等分区和”&#x2F;“共用一个分区，这就相当于是在Windows系统中只有一个C盘一样，所有数据和系统文件都存放在一起）</li>
+</ul>
+</li>
+<li><p>方案二：针对数据库及存储角色的服务器分区，该服务器的业务包含了大量重要的数据，建议分区方式如下：</p>
+<ul>
+<li>&#x2F;boot：512~1024MB</li>
+<li>&#x2F;swap：当物理内存小于8GB时，设置为物理内存的1.5倍，当物理内存大于等于8GB时，分配8-16GB，建议给8GB就可以了</li>
+<li>&#x2F;：大小设置为50~200GB，只存放系统相关文件，网站等的业务数据不放在这里</li>
+<li>&#x2F;data：剩余硬盘空间大小，存放数据库及存储服务等重要数据，当然，data这个名称可以自定义</li>
+</ul>
+<p> 方案二就是将重要数据单独分区，以便于备份和管理</p>
+</li>
+<li><p>方案三：针对大网站或者门户级别企业的服务器进行分区</p>
+<ul>
+<li>&#x2F;boot：512~1024MB</li>
+<li>&#x2F;swap：当物理内存小于8GB时，设置为物理内存的1.5倍，当物理内存大于等于8GB时，分配8-16GB，建议给8GB就可以了</li>
+<li>&#x2F;：大小设置为50~200GB，只存放系统相关文件，网站等的业务数据不放在这里</li>
+</ul>
+<p> 保留剩余的磁盘空间，不再进行分区，将来分配给不同的使用部门，由他们自己根据需求再分，此种分区方案更加灵活，比较适合也业务线比较多且需求不确定的大企业使用</p>
+</li>
+<li><p>不推荐的分区方案：<br> 手动对&#x2F;usr、&#x2F;home、&#x2F;var等进行分区，这样分配了太多额外的分区，没有必要，导致管理麻烦，不推荐这种分区方式</p>
+</li>
+</ol>
+<p>　　本文使用方案一来分区：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-40eac5768e5d710a-20240108011109-dpu1duz.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-6f04769758fc47c9-20240108011109-104crzq.png">​</p>
+<ul>
+<li><p>Mount Point：挂载点，这是Linux访问磁盘分区的入口，即如果要往&#x2F;boot分区(&#x2F;dev&#x2F;sda1)里写入数据，则必须通过&#x2F;boot入口来写入</p>
+</li>
+<li><p>File System：文件系统类型，磁盘分区只有在设置了文件系统类型，格式化并挂载到挂载点之后，分区才能存放数据，常用的文件系统类型如下：</p>
+<ul>
+<li>xfs：一个优秀的文件系统类型，在CentOS7中作为默认的文件系统类型替换了ext4</li>
+<li>ext2&#x2F;ext3&#x2F;ext4：一种适合于Linux的文件系统类型，ext3多出了日志记录功能，因此系统恢复起来会更快速，ext4是ext3的升级，效率更高，CentOS6默认使用的是ext4</li>
+<li>physical volume(LVM)：一种弹性调整文件系统大小的机制，即可以让文件系统变大或者变小，而无须改变原有文件数据的内容，功能不错，但性能会有所下降</li>
+<li>swap：内存交换空间，由于swap并不会使用到目录树的挂载，所以不需要指定挂载点</li>
+<li>vfat：同时支持Linux和Windows的文件系统类型，如果主机同时存在Windows与Linux两种操作系统，存在数据交换需求，就可以使用这种文件系统类型</li>
+</ul>
+</li>
+</ul>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-f4d09a3982419383-20240108011109-ngoua5r.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-a4404f9bf296fe6e-20240108011109-09qlkgu.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-1ba92f7969de45b9-20240108011109-jo1ynct.png">​</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-cb84870a19ed87bb-20240108011109-mkbfq2t.png">​</p>
+<p>　　点击”Done”:</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-acf7ce23881a9af9-20240108011109-xhi70ww.png">​</p>
+<p>　　注意：检查一下是不是所有的分区(&#x2F;、&#x2F;boot、swap)都是Standard Partition。</p>
+<h2 id="4-10-系统安全相关"><a href="#4-10-系统安全相关" class="headerlink" title="4.10 系统安全相关"></a>4.10 系统安全相关</h2><ul>
+<li>KDUMP：将宕机前系统内存异常信息进行保存<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-49d17e35dd0ca4ba-20240108011109-ne0mv7z.png">​</li>
+<li>SECURITY POLICY：系统的安全策略配置<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-6de50ed1232490e6-20240108011109-n23grll.png">​</li>
+</ul>
+<h2 id="4-11-系统安装"><a href="#4-11-系统安装" class="headerlink" title="4.11 系统安装"></a>4.11 系统安装</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-7ae5a0804f62ddc9-20240108011109-5u3wzn6.png">​</p>
+<p>　　点击”Begin Installation”：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-70dc1c9b9682dde9-20240108011109-wwmadh0.png">​</p>
+<p>　　设置root用户的密码：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-0259c3cb3f664730-20240108011109-m2wkd47.png">​</p>
+<p>　　设置普通用户的密码：提示密码强度不够，要强制使用需要点击两次”Done”</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-1854743c9e44e5fe-20240108011109-kvirt5a.png">​</p>
+<p>　　然后等待系统安装好即可，出现Reboot按钮就是已经安装好了：</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-5cc3afb39303c1b6-20240108011109-b2kpgxg.png">​</p>
+<p>　　然后点击Reboot按钮进行重启，重启过程不需要任何操作，等待即可。</p>
+<h2 id="5-系统安装后的操作与配置"><a href="#5-系统安装后的操作与配置" class="headerlink" title="5. 系统安装后的操作与配置"></a>5. 系统安装后的操作与配置</h2><h2 id="5-1-登陆查看基本信息"><a href="#5-1-登陆查看基本信息" class="headerlink" title="5.1 登陆查看基本信息"></a>5.1 登陆查看基本信息</h2><p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-5234c26636f8bd74-20240108011109-q2jukeo.png">​</p>
+<p>　　登陆界面的信息：</p>
+<ul>
+<li><p>版本信息：Kernel 3.10.0-957.el7.x86_64 on an x86_64</p>
+<ul>
+<li>3：主版本号，有结构性变化时才更改</li>
+<li>10：次版本号，新增功能后发生变化，一般奇数为测试版，偶数为开发版</li>
+<li>0：表示对次版本的修订次数或补丁包数</li>
+<li>957：编译次数，每次编译可对少数程序进行优化或修改</li>
+<li>el7：版本的特殊信息，有较大的随意性，el代表企业版Linux（pp代表测试版Linux，fc代表fedora core，rc代表候选版本）</li>
+<li>x86_64：64位操作系统</li>
+</ul>
+</li>
+<li><p>​<code>[root@node01]#</code>​中的#：超级管理员root输入命令的提示符，在#​号后面可以输入命令来管理系统，例如可以输入以下查看系统信息的命令：</p>
+<pre><code class="shell"># 手动查看系统版本信息
+# 如果有_64字样，就是64位操作系统
+# 如果有i386/i686字样，就是32位操作系统
+[root@node01]# uname -m
+x86_64
+[root@node01]# uname -r
+3.10.0-957.el7.x86_64
+[root@node01]# uname -a
+Linux node01 3.10.0-957.el7.x86_64 #1 SMP Thu Nov 8 23:39:32 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+# 以下命令如果有结果，就是64位操作系统
+[root@node01]# ls -d /lib64
+/lib64
+</code></pre>
+</li>
+</ul>
+<h2 id="5-2-检查网络配置"><a href="#5-2-检查网络配置" class="headerlink" title="5.2 检查网络配置"></a>5.2 检查网络配置</h2><ul>
+<li>ip address show，简写为ip a：查看IP信息</li>
+</ul>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-4e93b577e09c042f-20240108011109-6du3u4l.png">​</p>
+<ul>
+<li>ip route：查看网关设置<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-dcde563390138a49-20240108011109-d32u7im.png">​</li>
+<li>查看DNS设置：cat &#x2F;etc&#x2F;resolv.conf<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-82c8bee8b2e1c15a-20240108011109-ss1xs4h.png">​</li>
+<li>ping，Ctrl + C 结束ping</li>
+</ul>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-7789414-2305a154a30cee9b-20240108011109-1ejh4sl.png">​</p>
+<ul>
+<li>clear&#x2F;Ctrl + L，清除屏幕内容</li>
+</ul>
+<h2 id="5-3-系统无法联网的故障排除方法"><a href="#5-3-系统无法联网的故障排除方法" class="headerlink" title="5.3 系统无法联网的故障排除方法"></a>5.3 系统无法联网的故障排除方法</h2><ul>
+<li><p>检查IP、子网掩码、网关和DNS是否设置正确<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-dbf9ac920817d55c-20240108011109-gvxt3t4.png">​</p>
+<p>替换此文件中的某一个配置，例如将ONBOOT&#x3D;no改为ONBOOT&#x3D;yes的命令为：</p>
+<pre><code class="shell">sed -i &#39;s#ONBOOT=no#ONBOOT=yes#g&#39; /etc/sysconfig/network-scripts/ifcfg-eth0
+</code></pre>
+<p>查看某个配置，例如查看ONBOOT配置的值的命令：</p>
+<pre><code class="shell">grep ONBOOT /etc/sysconfig/network-scripts/ifcfg-eth0
+</code></pre>
+<p>修改之后重启网卡：</p>
+<pre><code class="shell">systemctl restart network
+</code></pre>
+</li>
+<li><p>查看Windows的VMware NAT服务是否开启<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-9fe57ebf3fbd3e16-20240108011109-xh7tl82.png">​</p>
+</li>
+</ul>
+<h2 id="5-4-使用nmtui命令设置网卡"><a href="#5-4-使用nmtui命令设置网卡" class="headerlink" title="5.4 使用nmtui命令设置网卡"></a>5.4 使用nmtui命令设置网卡</h2><p>　　如果服务器的网络有问题，那么可能需要重新设置网卡信息，可以通过修改<code>/etc/sysconfig/network-scripts/ifcfg-eth0</code>​这个文件来修改配置，此处介绍一种使用UI界面设置的方法。</p>
+<ul>
+<li>输入<code>nmtui</code>​命令后回车<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-aa22aae152aeaf34-20240108011109-275jq06.png">​</li>
+<li>nmtui各种界面的操作<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-7077c28289a6503a-20240108011110-kd2m5d1.png">​</li>
+<li>设置好之后依次选择”OK”、”back”、”quit”就可以保存并退到命令行</li>
+</ul>
+<h2 id="5-5-虚拟机保存快照"><a href="#5-5-虚拟机保存快照" class="headerlink" title="5.5 虚拟机保存快照"></a>5.5 虚拟机保存快照</h2><ul>
+<li>先关机：poweroff</li>
+<li>然后创建快照<br>​<img src="http://127.0.0.1:6806/assets/net-img-7789414-c5a5d9278e78cf57-20240108011110-ivlqrpm.png">​</li>
+</ul>
+<p>　　最后编辑于</p>
+<p>　　：2022.06.07 10:42:57</p>
+<p>　　©</p>
+<p>　　著作权归作者所有,转载或内容合作请联系作者</p>
+<p>　　<span style="font-weight: bold;" class="bold">3人点赞</span></p>
+<p>　　<a href="https://www.jianshu.com/nb/20236480">Linux</a></p>
+<p>　　更多精彩内容，就在简书APP</p>
+<p>　　​<img src="http://127.0.0.1:6806/assets/net-img-js-qrc-20240108011110-t380r3b.png">​</p>
+<p>　　“小礼物走一走，来简书关注我”</p>
+<p>　　<span style="font-weight: bold;" class="bold">还没有人赞赏，支持一下</span></p>
+<p>　　​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined"></p>
+<p>　　<a href="https://www.jianshu.com/u/f3baddfa95fc" title="CoderJed">CoderJed</a></p>
+<p>　　总资产137共写了23.4W字获得870个赞共1,244个粉丝</p>
+<ul>
+<li><p><a href="https://www.jianshu.com/p/1003a129be45">人面猴</a></p>
+<p>序言：七十年代末，一起剥皮案震惊了整个滨河市，随后出现的几起案子，更是在滨河造成了极大的恐慌，老刑警刘岩，带你破解…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>129,507<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">1</span>赞<span style="font-weight: bold;" class="bold"> </span>259</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/1c4506f51019">死咒</a></p>
+<p>序言：滨河连续发生了三起死亡事件，死亡现场离奇诡异，居然都是意外死亡，警方通过查阅死者的电脑和手机，发现死者居然都…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>56,067<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">1</span>赞<span style="font-weight: bold;" class="bold"> </span>223</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/1ded57e57939">救了他两次的神仙让他今天三更去死</a></p>
+<p>文&#x2F;潘晓璐 我一进店门，熙熙楼的掌柜王于贵愁眉苦脸地迎上来，“玉大人，你说我怎么就摊上这事。” “怎么了？”我有些…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>82,981<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>177</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/25685c1b1f2b">道士缉凶录：失踪的卖姜人</a></p>
+<p>文&#x2F;不坏的土叔    我叫张陵，是天一观的道长。 经常有香客问我，道长，这世上最难降的妖魔是什么？ 我笑而不…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>38,407<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>138</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/553802eff5d6">﻿港岛之恋（遗憾婚礼）</a></p>
+<p>正文 为了忘掉前任，我火速办了婚礼，结果婚礼上，老公的妹妹穿的比我还像新娘。我一直安慰自己，他们只是感情好，可当我…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>45,651<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">1</span>赞<span style="font-weight: bold;" class="bold"> </span>226</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/59985a89b4ef">恶毒庶女顶嫁案：这布局不是一般人想出来的</a></p>
+<p>文&#x2F;花漫 我一把揭开白布。 她就那样静静地躺着，像睡着了一般。 火红的嫁衣衬着肌肤如雪。 梳的纹丝不乱的头发上，一…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>37,303<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">1</span>赞<span style="font-weight: bold;" class="bold"> </span>150</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/62a01de427e0">城市分裂传说</a></p>
+<p>那天，我揣着相机与录音，去河边找鬼。 笑死，一个胖子当着我的面吹牛，可吹牛的内容都是我干的。 我是一名探鬼主播，决…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>29,022<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">2</span>赞<span style="font-weight: bold;" class="bold"> </span>227</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/6ccdc163474a">双鸳鸯连环套：你想象不到人心有多黑</a></p>
+<p>文&#x2F;苍兰香墨 我猛地睁开眼，长吁一口气：“原来是场噩梦啊……” “哼！你这毒妇竟也来了？” 一声冷哼从身侧响起，我…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>28,118<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>137</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/6fe2053108f7">父亲被人害死了，幕后凶手却是我最亲的人！</a></p>
+<p>想象着我的养父在大火中拼命挣扎，窒息，最后皮肤化为焦炭。我心中就已经是抑制不住地欢快，这就叫做以其人之道，还治其人…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>27,547<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">5</span>赞<span style="font-weight: bold;" class="bold"> </span>198</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/8796e3463067">万荣杀人案实录</a></p>
+<p>序言：老挝万荣一对情侣失踪，失踪者是张志新（化名）和其女友刘颖，没想到半个月后，有当地人在树林里发现了一具尸体，经…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>31,279<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>192</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/8a691dd8fa34">﻿护林员之死</a></p>
+<p>正文 独居荒郊野岭守林人离奇死亡，尸身上长有42处带血的脓包…… 初始之章·张勋 以下内容为张勋视角 年9月15日…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>28,254<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">2</span>赞<span style="font-weight: bold;" class="bold"> </span>185</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/a5293fa3b5e0">﻿白月光启示录</a></p>
+<p>正文 我和宋清朗相恋三年，在试婚纱的时候发现自己被绿了。 大学时的朋友给我发了我未婚夫和他白月光在一起吃饭的照片。…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>29,511<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">1</span>赞<span style="font-weight: bold;" class="bold"> </span>197</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/a68a12246696">惨遭霸总抛弃后，我靠赚来的钱成了富豪榜第一名</a></p>
+<p>白月光回国，霸总把我这个替身辞退。还一脸阴沉的警告我。[不要出现在思思面前， 不然我有一百种方法让你生不如死。]我…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>23,590<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>27</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/a83aa7e71001">活死人</a></p>
+<p>序言：一个原本活蹦乱跳的男人离奇死亡，死状恐怖，灵堂内的尸体忽然破棺而出，到底是诈尸还是另有隐情，我是刑警宁泽，带…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>26,232<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">2</span>赞<span style="font-weight: bold;" class="bold"> </span>181</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/bee7d9c3fcf9">﻿日本核电站爆炸内幕</a></p>
+<p>正文 年R本政府宣布，位于F岛的核电站，受9级特大地震影响，放射性物质发生泄漏。R本人自食恶果不足惜，却给世界环境…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>30,305<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">3</span>赞<span style="font-weight: bold;" class="bold"> </span>184</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/c2cfc4cb0aa7">男人毒药：我在死后第九天来索命</a></p>
+<p>文&#x2F;蒙蒙 一、第九天 我趴在偏房一处隐蔽的房顶上张望。 院中可真热闹，春花似锦、人声如沸。这庄子的主人今日做“春日…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>24,943<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>6</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/c329b54bd638">一桩弑父案，背后竟有这般阴谋</a></p>
+<p>文&#x2F;苍兰香墨 我抬头看了看天上的太阳。三九已至，却和暖如春，着一层夹袄步出监牢的瞬间，已是汗流浃背。 一阵脚步声响…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>25,023<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>132</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/d79d2f48417f">情欲美人皮</a></p>
+<p>我被黑心中介骗来泰国打工， 没想到刚下飞机就差点儿被人妖公主榨干…… 1. 我叫王不留，地道东北人。 一个月前我还…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>31,877<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">2</span>赞<span style="font-weight: bold;" class="bold"> </span>202</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/fc890ed5083c">代替公主和亲</a></p>
+<p>正文 我出身青楼，却偏偏与公主长得像，于是被迫代替她去往敌国和亲。 传闻我的和亲对象是个残疾皇子，可洞房花烛夜当晚…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>32,090<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">2</span>赞<span style="font-weight: bold;" class="bold"> </span>202</p>
+</li>
+</ul>
+<h3 id="推荐阅读更多精彩内容"><a href="#推荐阅读更多精彩内容" class="headerlink" title="推荐阅读更多精彩内容"></a>推荐阅读<a href="https://www.jianshu.com/">更多精彩内容</a></h3><ul>
+<li><p><a href="https://www.jianshu.com/p/e7e59aa717f8">linux磁盘分区以及系统目录结构介绍</a></p>
+<p>大家好，我是可爱的帅气迷人的猪猪，硬盘如果想存放数据要经历以如下过程先分区—-》格式化（创建文件系统）—》…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>3,951<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>1</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/171a3f385b38">网络操作系统复习资料</a></p>
+<p>1、第八章 Samba服务器2、第八章 NFS服务器3、第十章 Linux下DNS服务器配站点，域名解析概念命令：…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>3,602<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>10</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/73f3de2085ce">Linux系统结构</a></p>
+<p>Linux系统一般有4个主要部分： 内核、shell、文件系统和应用程序。内核、shell和文件系统一起形成了基本…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>3,150<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">1</span>赞<span style="font-weight: bold;" class="bold"> </span>17</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/b23821728aa0">linux系统结构详解（转载）</a></p>
+<p>Linux系统一般有4个主要部分：内核、shell、文件系统和应用程序。 内核、shell和文件系统一起形成了基本…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>2,490<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>22</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/9c5c708d2a5e">日常</a></p>
+<p>今天比较尴尬的是收到快递才发现自己竟然拍了相同的两件，马上联系卖家，一早上都在忙快递的问题，哎，终于在吃饭之前解决…</p>
+<p>​<img src="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/undefined">阅读<span style="font-weight: bold;" class="bold"> </span>172<span style="font-weight: bold;" class="bold">评论</span> <span style="font-weight: bold;" class="bold">0</span>赞<span style="font-weight: bold;" class="bold"> </span>0</p>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jiang4yu@126.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>001.企业级CentOS7.6操作系统的安装</p>
+    <p><span class="copy-title">字数:</span><span class="post-count">5.7k</span></p>
+    <p><span class="copy-title">本文作者:</span><a  title=""></a></p>
+    <p><span class="copy-title">发布时间:</span>2024-01-08, 01:11:07</p>
+    <p><span class="copy-title">最后更新:</span>2024-03-30, 14:43:34</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/" title="001.企业级CentOS7.6操作系统的安装">https://blog.jiang4yu.com/2024/01/07/001-enterprise-centos-76-operating-system-installation-z2mkm7v/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2022 Jiang4Yu
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
